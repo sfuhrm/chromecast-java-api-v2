@@ -3,3911 +3,3463 @@
 
 package su.litvak.chromecast.api.v2;
 
-final class CastChannel {
-    private CastChannel() {}
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
+public final class CastChannel {
+  private CastChannel() {}
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
+  /**
+   * Protobuf enum {@code su.litvak.chromecast.api.v2.SignatureAlgorithm}
+   */
+  public enum SignatureAlgorithm
+      implements com.google.protobuf.Internal.EnumLite {
     /**
-     * Protobuf enum {@code su.litvak.chromecast.api.v2.SignatureAlgorithm}
+     * <code>UNSPECIFIED = 0;</code>
      */
-    public enum SignatureAlgorithm
-            implements com.google.protobuf.Internal.EnumLite {
-        /**
-         * <code>UNSPECIFIED = 0;</code>
-         */
-        UNSPECIFIED(0, 0),
-        /**
-         * <code>RSASSA_PKCS1v15 = 1;</code>
-         */
-        RSASSA_PKCS1v15(1, 1),
-        /**
-         * <code>RSASSA_PSS = 2;</code>
-         */
-        RSASSA_PSS(2, 2),
-        ;
+    UNSPECIFIED(0),
+    /**
+     * <code>RSASSA_PKCS1v15 = 1;</code>
+     */
+    RSASSA_PKCS1v15(1),
+    /**
+     * <code>RSASSA_PSS = 2;</code>
+     */
+    RSASSA_PSS(2),
+    ;
 
-        /**
-         * <code>UNSPECIFIED = 0;</code>
-         */
-        public static final int UNSPECIFIED_VALUE = 0;
-        /**
-         * <code>RSASSA_PKCS1v15 = 1;</code>
-         */
-        public static final int RSASSA_PKCS1v15_VALUE = 1;
-        /**
-         * <code>RSASSA_PSS = 2;</code>
-         */
-        public static final int RSASSA_PSS_VALUE = 2;
+    /**
+     * <code>UNSPECIFIED = 0;</code>
+     */
+    public static final int UNSPECIFIED_VALUE = 0;
+    /**
+     * <code>RSASSA_PKCS1v15 = 1;</code>
+     */
+    public static final int RSASSA_PKCS1v15_VALUE = 1;
+    /**
+     * <code>RSASSA_PSS = 2;</code>
+     */
+    public static final int RSASSA_PSS_VALUE = 2;
 
 
-        public final int getNumber() { return value; }
-
-        public static SignatureAlgorithm valueOf(int value) {
-            switch (value) {
-                case 0: return UNSPECIFIED;
-                case 1: return RSASSA_PKCS1v15;
-                case 2: return RSASSA_PSS;
-                default: return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-        private static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>
-                internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>() {
-                    public SignatureAlgorithm findValueByNumber(int number) {
-                        return SignatureAlgorithm.valueOf(number);
-                    }
-                };
-
-        private final int value;
-
-        private SignatureAlgorithm(int index, int value) {
-            this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.SignatureAlgorithm)
+    @java.lang.Override
+    public final int getNumber() {
+      return value;
     }
 
-    public interface CastMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.CastMessage)
-            com.google.protobuf.MessageLiteOrBuilder {
+    /**
+     * @param value The number of the enum to look for.
+     * @return The enum associated with the given number.
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static SignatureAlgorithm valueOf(int value) {
+      return forNumber(value);
+    }
 
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-         */
-        boolean hasProtocolVersion();
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion();
+    public static SignatureAlgorithm forNumber(int value) {
+      switch (value) {
+        case 0: return UNSPECIFIED;
+        case 1: return RSASSA_PKCS1v15;
+        case 2: return RSASSA_PSS;
+        default: return null;
+      }
+    }
 
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        boolean hasSourceId();
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        java.lang.String getSourceId();
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        com.google.protobuf.ByteString
+    public static com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        SignatureAlgorithm> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<SignatureAlgorithm>() {
+            @java.lang.Override
+            public SignatureAlgorithm findValueByNumber(int number) {
+              return SignatureAlgorithm.forNumber(number);
+            }
+          };
+
+    public static com.google.protobuf.Internal.EnumVerifier 
+        internalGetVerifier() {
+      return SignatureAlgorithmVerifier.INSTANCE;
+    }
+
+    private static final class SignatureAlgorithmVerifier implements 
+         com.google.protobuf.Internal.EnumVerifier { 
+            static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new SignatureAlgorithmVerifier();
+            @java.lang.Override
+            public boolean isInRange(int number) {
+              return SignatureAlgorithm.forNumber(number) != null;
+            }
+          };
+
+    private final int value;
+
+    private SignatureAlgorithm(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.SignatureAlgorithm)
+  }
+
+  public interface CastMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.CastMessage)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     * @return Whether the protocolVersion field is set.
+     */
+    boolean hasProtocolVersion();
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     * @return The protocolVersion.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion();
+
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return Whether the sourceId field is set.
+     */
+    boolean hasSourceId();
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return The sourceId.
+     */
+    java.lang.String getSourceId();
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return The bytes for sourceId.
+     */
+    com.google.protobuf.ByteString
         getSourceIdBytes();
 
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        boolean hasDestinationId();
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        java.lang.String getDestinationId();
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return Whether the destinationId field is set.
+     */
+    boolean hasDestinationId();
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return The destinationId.
+     */
+    java.lang.String getDestinationId();
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return The bytes for destinationId.
+     */
+    com.google.protobuf.ByteString
         getDestinationIdBytes();
 
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        boolean hasNamespace();
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        java.lang.String getNamespace();
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return Whether the namespace field is set.
+     */
+    boolean hasNamespace();
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return The namespace.
+     */
+    java.lang.String getNamespace();
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return The bytes for namespace.
+     */
+    com.google.protobuf.ByteString
         getNamespaceBytes();
 
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-         */
-        boolean hasPayloadType();
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType();
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     * @return Whether the payloadType field is set.
+     */
+    boolean hasPayloadType();
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     * @return The payloadType.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType();
 
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        boolean hasPayloadUtf8();
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        java.lang.String getPayloadUtf8();
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        com.google.protobuf.ByteString
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return Whether the payloadUtf8 field is set.
+     */
+    boolean hasPayloadUtf8();
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return The payloadUtf8.
+     */
+    java.lang.String getPayloadUtf8();
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return The bytes for payloadUtf8.
+     */
+    com.google.protobuf.ByteString
         getPayloadUtf8Bytes();
 
-        /**
-         * <code>optional bytes payload_binary = 7;</code>
-         */
-        boolean hasPayloadBinary();
-        /**
-         * <code>optional bytes payload_binary = 7;</code>
-         */
-        com.google.protobuf.ByteString getPayloadBinary();
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     * @return Whether the payloadBinary field is set.
+     */
+    boolean hasPayloadBinary();
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     * @return The payloadBinary.
+     */
+    com.google.protobuf.ByteString getPayloadBinary();
+  }
+  /**
+   * Protobuf type {@code su.litvak.chromecast.api.v2.CastMessage}
+   */
+  public  static final class CastMessage extends
+      com.google.protobuf.GeneratedMessageLite<
+          CastMessage, CastMessage.Builder> implements
+      // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.CastMessage)
+      CastMessageOrBuilder {
+    private CastMessage() {
+      sourceId_ = "";
+      destinationId_ = "";
+      namespace_ = "";
+      payloadUtf8_ = "";
+      payloadBinary_ = com.google.protobuf.ByteString.EMPTY;
     }
+    /**
+     * <pre>
+     * Always pass a version of the protocol for future compatibility
+     * requirements.
+     * </pre>
+     *
+     * Protobuf enum {@code su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion}
+     */
+    public enum ProtocolVersion
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>CASTV2_1_0 = 0;</code>
+       */
+      CASTV2_1_0(0),
+      ;
+
+      /**
+       * <code>CASTV2_1_0 = 0;</code>
+       */
+      public static final int CASTV2_1_0_VALUE = 0;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ProtocolVersion valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ProtocolVersion forNumber(int value) {
+        switch (value) {
+          case 0: return CASTV2_1_0;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ProtocolVersion> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>() {
+              @java.lang.Override
+              public ProtocolVersion findValueByNumber(int number) {
+                return ProtocolVersion.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return ProtocolVersionVerifier.INSTANCE;
+      }
+
+      private static final class ProtocolVersionVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ProtocolVersionVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return ProtocolVersion.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private ProtocolVersion(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion)
+    }
+
+    /**
+     * <pre>
+     * What type of data do we have in this message.
+     * </pre>
+     *
+     * Protobuf enum {@code su.litvak.chromecast.api.v2.CastMessage.PayloadType}
+     */
+    public enum PayloadType
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>STRING = 0;</code>
+       */
+      STRING(0),
+      /**
+       * <code>BINARY = 1;</code>
+       */
+      BINARY(1),
+      ;
+
+      /**
+       * <code>STRING = 0;</code>
+       */
+      public static final int STRING_VALUE = 0;
+      /**
+       * <code>BINARY = 1;</code>
+       */
+      public static final int BINARY_VALUE = 1;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static PayloadType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static PayloadType forNumber(int value) {
+        switch (value) {
+          case 0: return STRING;
+          case 1: return BINARY;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<PayloadType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          PayloadType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<PayloadType>() {
+              @java.lang.Override
+              public PayloadType findValueByNumber(int number) {
+                return PayloadType.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return PayloadTypeVerifier.INSTANCE;
+      }
+
+      private static final class PayloadTypeVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new PayloadTypeVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return PayloadType.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private PayloadType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.CastMessage.PayloadType)
+    }
+
+    private int bitField0_;
+    public static final int PROTOCOL_VERSION_FIELD_NUMBER = 1;
+    private int protocolVersion_;
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     * @return Whether the protocolVersion field is set.
+     */
+    @java.lang.Override
+    public boolean hasProtocolVersion() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     * @return The protocolVersion.
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion() {
+      su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion result = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.forNumber(protocolVersion_);
+      return result == null ? su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0 : result;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     * @param value The protocolVersion to set.
+     */
+    private void setProtocolVersion(su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion value) {
+      protocolVersion_ = value.getNumber();
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+     */
+    private void clearProtocolVersion() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      protocolVersion_ = 0;
+    }
+
+    public static final int SOURCE_ID_FIELD_NUMBER = 2;
+    private java.lang.String sourceId_;
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return Whether the sourceId field is set.
+     */
+    @java.lang.Override
+    public boolean hasSourceId() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return The sourceId.
+     */
+    @java.lang.Override
+    public java.lang.String getSourceId() {
+      return sourceId_;
+    }
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @return The bytes for sourceId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getSourceIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(sourceId_);
+    }
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @param value The sourceId to set.
+     */
+    private void setSourceId(
+        java.lang.String value) {
+      value.getClass();
+  bitField0_ |= 0x00000002;
+      sourceId_ = value;
+    }
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     */
+    private void clearSourceId() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      sourceId_ = getDefaultInstance().getSourceId();
+    }
+    /**
+     * <pre>
+     * source and destination ids identify the origin and destination of the
+     * message.  They are used to route messages between endpoints that share a
+     * device-to-device channel.
+     * For messages between applications:
+     *   - The sender application id is a unique identifier generated on behalf of
+     *     the sender application.
+     *   - The receiver id is always the the session id for the application.
+     * For messages to or from the sender or receiver platform, the special ids
+     * 'sender-0' and 'receiver-0' can be used.
+     * For messages intended for all endpoints using a given channel, the
+     * wildcard destination_id '*' can be used.
+     * </pre>
+     *
+     * <code>required string source_id = 2;</code>
+     * @param value The bytes for sourceId to set.
+     */
+    private void setSourceIdBytes(
+        com.google.protobuf.ByteString value) {
+      sourceId_ = value.toStringUtf8();
+      bitField0_ |= 0x00000002;
+    }
+
+    public static final int DESTINATION_ID_FIELD_NUMBER = 3;
+    private java.lang.String destinationId_;
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return Whether the destinationId field is set.
+     */
+    @java.lang.Override
+    public boolean hasDestinationId() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return The destinationId.
+     */
+    @java.lang.Override
+    public java.lang.String getDestinationId() {
+      return destinationId_;
+    }
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @return The bytes for destinationId.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getDestinationIdBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(destinationId_);
+    }
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @param value The destinationId to set.
+     */
+    private void setDestinationId(
+        java.lang.String value) {
+      value.getClass();
+  bitField0_ |= 0x00000004;
+      destinationId_ = value;
+    }
+    /**
+     * <code>required string destination_id = 3;</code>
+     */
+    private void clearDestinationId() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      destinationId_ = getDefaultInstance().getDestinationId();
+    }
+    /**
+     * <code>required string destination_id = 3;</code>
+     * @param value The bytes for destinationId to set.
+     */
+    private void setDestinationIdBytes(
+        com.google.protobuf.ByteString value) {
+      destinationId_ = value.toStringUtf8();
+      bitField0_ |= 0x00000004;
+    }
+
+    public static final int NAMESPACE_FIELD_NUMBER = 4;
+    private java.lang.String namespace_;
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return Whether the namespace field is set.
+     */
+    @java.lang.Override
+    public boolean hasNamespace() {
+      return ((bitField0_ & 0x00000008) != 0);
+    }
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return The namespace.
+     */
+    @java.lang.Override
+    public java.lang.String getNamespace() {
+      return namespace_;
+    }
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @return The bytes for namespace.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getNamespaceBytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(namespace_);
+    }
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @param value The namespace to set.
+     */
+    private void setNamespace(
+        java.lang.String value) {
+      value.getClass();
+  bitField0_ |= 0x00000008;
+      namespace_ = value;
+    }
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     */
+    private void clearNamespace() {
+      bitField0_ = (bitField0_ & ~0x00000008);
+      namespace_ = getDefaultInstance().getNamespace();
+    }
+    /**
+     * <pre>
+     * This is the core multiplexing key.  All messages are sent on a namespace
+     * and endpoints sharing a channel listen on one or more namespaces.  The
+     * namespace defines the protocol and semantics of the message.
+     * </pre>
+     *
+     * <code>required string namespace = 4;</code>
+     * @param value The bytes for namespace to set.
+     */
+    private void setNamespaceBytes(
+        com.google.protobuf.ByteString value) {
+      namespace_ = value.toStringUtf8();
+      bitField0_ |= 0x00000008;
+    }
+
+    public static final int PAYLOAD_TYPE_FIELD_NUMBER = 5;
+    private int payloadType_;
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     * @return Whether the payloadType field is set.
+     */
+    @java.lang.Override
+    public boolean hasPayloadType() {
+      return ((bitField0_ & 0x00000010) != 0);
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     * @return The payloadType.
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType() {
+      su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType result = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.forNumber(payloadType_);
+      return result == null ? su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.STRING : result;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     * @param value The payloadType to set.
+     */
+    private void setPayloadType(su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType value) {
+      payloadType_ = value.getNumber();
+      bitField0_ |= 0x00000010;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+     */
+    private void clearPayloadType() {
+      bitField0_ = (bitField0_ & ~0x00000010);
+      payloadType_ = 0;
+    }
+
+    public static final int PAYLOAD_UTF8_FIELD_NUMBER = 6;
+    private java.lang.String payloadUtf8_;
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return Whether the payloadUtf8 field is set.
+     */
+    @java.lang.Override
+    public boolean hasPayloadUtf8() {
+      return ((bitField0_ & 0x00000020) != 0);
+    }
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return The payloadUtf8.
+     */
+    @java.lang.Override
+    public java.lang.String getPayloadUtf8() {
+      return payloadUtf8_;
+    }
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @return The bytes for payloadUtf8.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getPayloadUtf8Bytes() {
+      return com.google.protobuf.ByteString.copyFromUtf8(payloadUtf8_);
+    }
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @param value The payloadUtf8 to set.
+     */
+    private void setPayloadUtf8(
+        java.lang.String value) {
+      value.getClass();
+  bitField0_ |= 0x00000020;
+      payloadUtf8_ = value;
+    }
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     */
+    private void clearPayloadUtf8() {
+      bitField0_ = (bitField0_ & ~0x00000020);
+      payloadUtf8_ = getDefaultInstance().getPayloadUtf8();
+    }
+    /**
+     * <pre>
+     * Depending on payload_type, exactly one of the following optional fields
+     * will always be set.
+     * </pre>
+     *
+     * <code>optional string payload_utf8 = 6;</code>
+     * @param value The bytes for payloadUtf8 to set.
+     */
+    private void setPayloadUtf8Bytes(
+        com.google.protobuf.ByteString value) {
+      payloadUtf8_ = value.toStringUtf8();
+      bitField0_ |= 0x00000020;
+    }
+
+    public static final int PAYLOAD_BINARY_FIELD_NUMBER = 7;
+    private com.google.protobuf.ByteString payloadBinary_;
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     * @return Whether the payloadBinary field is set.
+     */
+    @java.lang.Override
+    public boolean hasPayloadBinary() {
+      return ((bitField0_ & 0x00000040) != 0);
+    }
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     * @return The payloadBinary.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getPayloadBinary() {
+      return payloadBinary_;
+    }
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     * @param value The payloadBinary to set.
+     */
+    private void setPayloadBinary(com.google.protobuf.ByteString value) {
+      value.getClass();
+  bitField0_ |= 0x00000040;
+      payloadBinary_ = value;
+    }
+    /**
+     * <code>optional bytes payload_binary = 7;</code>
+     */
+    private void clearPayloadBinary() {
+      bitField0_ = (bitField0_ & ~0x00000040);
+      payloadBinary_ = getDefaultInstance().getPayloadBinary();
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.CastMessage prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
     /**
      * Protobuf type {@code su.litvak.chromecast.api.v2.CastMessage}
      */
-    public static final class CastMessage extends
-            com.google.protobuf.GeneratedMessageLite implements
-            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.CastMessage)
-            CastMessageOrBuilder {
-        // Use CastMessage.newBuilder() to construct.
-        private CastMessage(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          su.litvak.chromecast.api.v2.CastChannel.CastMessage, Builder> implements
+        // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.CastMessage)
+        su.litvak.chromecast.api.v2.CastChannel.CastMessageOrBuilder {
+      // Construct using su.litvak.chromecast.api.v2.CastChannel.CastMessage.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+       * @return Whether the protocolVersion field is set.
+       */
+      @java.lang.Override
+      public boolean hasProtocolVersion() {
+        return instance.hasProtocolVersion();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+       * @return The protocolVersion.
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion() {
+        return instance.getProtocolVersion();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+       * @param value The enum numeric value on the wire for protocolVersion to set.
+       * @return This builder for chaining.
+       */
+      public Builder setProtocolVersion(su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion value) {
+        copyOnWrite();
+        instance.setProtocolVersion(value);
+        return this;
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearProtocolVersion() {
+        copyOnWrite();
+        instance.clearProtocolVersion();
+        return this;
+      }
+
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @return Whether the sourceId field is set.
+       */
+      @java.lang.Override
+      public boolean hasSourceId() {
+        return instance.hasSourceId();
+      }
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @return The sourceId.
+       */
+      @java.lang.Override
+      public java.lang.String getSourceId() {
+        return instance.getSourceId();
+      }
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @return The bytes for sourceId.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getSourceIdBytes() {
+        return instance.getSourceIdBytes();
+      }
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @param value The sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setSourceId(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSourceId() {
+        copyOnWrite();
+        instance.clearSourceId();
+        return this;
+      }
+      /**
+       * <pre>
+       * source and destination ids identify the origin and destination of the
+       * message.  They are used to route messages between endpoints that share a
+       * device-to-device channel.
+       * For messages between applications:
+       *   - The sender application id is a unique identifier generated on behalf of
+       *     the sender application.
+       *   - The receiver id is always the the session id for the application.
+       * For messages to or from the sender or receiver platform, the special ids
+       * 'sender-0' and 'receiver-0' can be used.
+       * For messages intended for all endpoints using a given channel, the
+       * wildcard destination_id '*' can be used.
+       * </pre>
+       *
+       * <code>required string source_id = 2;</code>
+       * @param value The bytes for sourceId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSourceIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setSourceIdBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @return Whether the destinationId field is set.
+       */
+      @java.lang.Override
+      public boolean hasDestinationId() {
+        return instance.hasDestinationId();
+      }
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @return The destinationId.
+       */
+      @java.lang.Override
+      public java.lang.String getDestinationId() {
+        return instance.getDestinationId();
+      }
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @return The bytes for destinationId.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getDestinationIdBytes() {
+        return instance.getDestinationIdBytes();
+      }
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @param value The destinationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationId(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setDestinationId(value);
+        return this;
+      }
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearDestinationId() {
+        copyOnWrite();
+        instance.clearDestinationId();
+        return this;
+      }
+      /**
+       * <code>required string destination_id = 3;</code>
+       * @param value The bytes for destinationId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setDestinationIdBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setDestinationIdBytes(value);
+        return this;
+      }
+
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @return Whether the namespace field is set.
+       */
+      @java.lang.Override
+      public boolean hasNamespace() {
+        return instance.hasNamespace();
+      }
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @return The namespace.
+       */
+      @java.lang.Override
+      public java.lang.String getNamespace() {
+        return instance.getNamespace();
+      }
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @return The bytes for namespace.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getNamespaceBytes() {
+        return instance.getNamespaceBytes();
+      }
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @param value The namespace to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNamespace(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setNamespace(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNamespace() {
+        copyOnWrite();
+        instance.clearNamespace();
+        return this;
+      }
+      /**
+       * <pre>
+       * This is the core multiplexing key.  All messages are sent on a namespace
+       * and endpoints sharing a channel listen on one or more namespaces.  The
+       * namespace defines the protocol and semantics of the message.
+       * </pre>
+       *
+       * <code>required string namespace = 4;</code>
+       * @param value The bytes for namespace to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNamespaceBytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setNamespaceBytes(value);
+        return this;
+      }
+
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+       * @return Whether the payloadType field is set.
+       */
+      @java.lang.Override
+      public boolean hasPayloadType() {
+        return instance.hasPayloadType();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+       * @return The payloadType.
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType() {
+        return instance.getPayloadType();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+       * @param value The enum numeric value on the wire for payloadType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayloadType(su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType value) {
+        copyOnWrite();
+        instance.setPayloadType(value);
+        return this;
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayloadType() {
+        copyOnWrite();
+        instance.clearPayloadType();
+        return this;
+      }
+
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @return Whether the payloadUtf8 field is set.
+       */
+      @java.lang.Override
+      public boolean hasPayloadUtf8() {
+        return instance.hasPayloadUtf8();
+      }
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @return The payloadUtf8.
+       */
+      @java.lang.Override
+      public java.lang.String getPayloadUtf8() {
+        return instance.getPayloadUtf8();
+      }
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @return The bytes for payloadUtf8.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getPayloadUtf8Bytes() {
+        return instance.getPayloadUtf8Bytes();
+      }
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @param value The payloadUtf8 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayloadUtf8(
+          java.lang.String value) {
+        copyOnWrite();
+        instance.setPayloadUtf8(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayloadUtf8() {
+        copyOnWrite();
+        instance.clearPayloadUtf8();
+        return this;
+      }
+      /**
+       * <pre>
+       * Depending on payload_type, exactly one of the following optional fields
+       * will always be set.
+       * </pre>
+       *
+       * <code>optional string payload_utf8 = 6;</code>
+       * @param value The bytes for payloadUtf8 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayloadUtf8Bytes(
+          com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setPayloadUtf8Bytes(value);
+        return this;
+      }
+
+      /**
+       * <code>optional bytes payload_binary = 7;</code>
+       * @return Whether the payloadBinary field is set.
+       */
+      @java.lang.Override
+      public boolean hasPayloadBinary() {
+        return instance.hasPayloadBinary();
+      }
+      /**
+       * <code>optional bytes payload_binary = 7;</code>
+       * @return The payloadBinary.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getPayloadBinary() {
+        return instance.getPayloadBinary();
+      }
+      /**
+       * <code>optional bytes payload_binary = 7;</code>
+       * @param value The payloadBinary to set.
+       * @return This builder for chaining.
+       */
+      public Builder setPayloadBinary(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setPayloadBinary(value);
+        return this;
+      }
+      /**
+       * <code>optional bytes payload_binary = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearPayloadBinary() {
+        copyOnWrite();
+        instance.clearPayloadBinary();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.CastMessage)
+    }
+    private byte memoizedIsInitialized = 2;
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new su.litvak.chromecast.api.v2.CastChannel.CastMessage();
         }
-        private CastMessage(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
-
-        private static final CastMessage defaultInstance;
-        public static CastMessage getDefaultInstance() {
-            return defaultInstance;
+        case NEW_BUILDER: {
+          return new Builder();
         }
-
-        public CastMessage getDefaultInstanceForType() {
-            return defaultInstance;
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "protocolVersion_",
+              su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.internalGetVerifier(),
+              "sourceId_",
+              "destinationId_",
+              "namespace_",
+              "payloadType_",
+              su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.internalGetVerifier(),
+              "payloadUtf8_",
+              "payloadBinary_",
+            };
+            java.lang.String info =
+                "\u0001\u0007\u0000\u0001\u0001\u0007\u0007\u0000\u0000\u0005\u0001\u050c\u0000\u0002" +
+                "\u0508\u0001\u0003\u0508\u0002\u0004\u0508\u0003\u0005\u050c\u0004\u0006\b\u0005" +
+                "\u0007\n\u0006";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-
-        private final com.google.protobuf.ByteString unknownFields;
-        private CastMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput =
-                    com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-                    com.google.protobuf.CodedOutputStream.newInstance(
-                            unknownFieldsOutput);
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
-                            su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion value = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFieldsCodedOutput.writeRawVarint32(tag);
-                                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
-                            } else {
-                                bitField0_ |= 0x00000001;
-                                protocolVersion_ = value;
-                            }
-                            break;
-                        }
-                        case 18: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
-                            bitField0_ |= 0x00000002;
-                            sourceId_ = bs;
-                            break;
-                        }
-                        case 26: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
-                            bitField0_ |= 0x00000004;
-                            destinationId_ = bs;
-                            break;
-                        }
-                        case 34: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
-                            bitField0_ |= 0x00000008;
-                            namespace_ = bs;
-                            break;
-                        }
-                        case 40: {
-                            int rawValue = input.readEnum();
-                            su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType value = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFieldsCodedOutput.writeRawVarint32(tag);
-                                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
-                            } else {
-                                bitField0_ |= 0x00000010;
-                                payloadType_ = value;
-                            }
-                            break;
-                        }
-                        case 50: {
-                            com.google.protobuf.ByteString bs = input.readBytes();
-                            bitField0_ |= 0x00000020;
-                            payloadUtf8_ = bs;
-                            break;
-                        }
-                        case 58: {
-                            bitField0_ |= 0x00000040;
-                            payloadBinary_ = input.readBytes();
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-                try {
-                    unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
-                    // Should not happen
-                } finally {
-                    unknownFields = unknownFieldsOutput.toByteString();
-                }
-                makeExtensionsImmutable();
-            }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
         }
-        public static com.google.protobuf.Parser<CastMessage> PARSER =
-                new com.google.protobuf.AbstractParser<CastMessage>() {
-                    public CastMessage parsePartialFrom(
-                            com.google.protobuf.CodedInputStream input,
-                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                            throws com.google.protobuf.InvalidProtocolBufferException {
-                        return new CastMessage(input, extensionRegistry);
-                    }
-                };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<CastMessage> getParserForType() {
-            return PARSER;
-        }
-
-        /**
-         * Protobuf enum {@code su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion}
-         *
-         * <pre>
-         * Always pass a version of the protocol for future compatibility
-         * requirements.
-         * </pre>
-         */
-        public enum ProtocolVersion
-                implements com.google.protobuf.Internal.EnumLite {
-            /**
-             * <code>CASTV2_1_0 = 0;</code>
-             */
-            CASTV2_1_0(0, 0),
-            ;
-
-            /**
-             * <code>CASTV2_1_0 = 0;</code>
-             */
-            public static final int CASTV2_1_0_VALUE = 0;
-
-
-            public final int getNumber() { return value; }
-
-            public static ProtocolVersion valueOf(int value) {
-                switch (value) {
-                    case 0: return CASTV2_1_0;
-                    default: return null;
-                }
-            }
-
-            public static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>
-            internalGetValueMap() {
-                return internalValueMap;
-            }
-            private static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>
-                    internalValueMap =
-                    new com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>() {
-                        public ProtocolVersion findValueByNumber(int number) {
-                            return ProtocolVersion.valueOf(number);
-                        }
-                    };
-
-            private final int value;
-
-            private ProtocolVersion(int index, int value) {
-                this.value = value;
-            }
-
-            // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion)
-        }
-
-        /**
-         * Protobuf enum {@code su.litvak.chromecast.api.v2.CastMessage.PayloadType}
-         *
-         * <pre>
-         * What type of data do we have in this message.
-         * </pre>
-         */
-        public enum PayloadType
-                implements com.google.protobuf.Internal.EnumLite {
-            /**
-             * <code>STRING = 0;</code>
-             */
-            STRING(0, 0),
-            /**
-             * <code>BINARY = 1;</code>
-             */
-            BINARY(1, 1),
-            ;
-
-            /**
-             * <code>STRING = 0;</code>
-             */
-            public static final int STRING_VALUE = 0;
-            /**
-             * <code>BINARY = 1;</code>
-             */
-            public static final int BINARY_VALUE = 1;
-
-
-            public final int getNumber() { return value; }
-
-            public static PayloadType valueOf(int value) {
-                switch (value) {
-                    case 0: return STRING;
-                    case 1: return BINARY;
-                    default: return null;
-                }
-            }
-
-            public static com.google.protobuf.Internal.EnumLiteMap<PayloadType>
-            internalGetValueMap() {
-                return internalValueMap;
-            }
-            private static com.google.protobuf.Internal.EnumLiteMap<PayloadType>
-                    internalValueMap =
-                    new com.google.protobuf.Internal.EnumLiteMap<PayloadType>() {
-                        public PayloadType findValueByNumber(int number) {
-                            return PayloadType.valueOf(number);
-                        }
-                    };
-
-            private final int value;
-
-            private PayloadType(int index, int value) {
-                this.value = value;
-            }
-
-            // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.CastMessage.PayloadType)
-        }
-
-        private int bitField0_;
-        public static final int PROTOCOL_VERSION_FIELD_NUMBER = 1;
-        private su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion protocolVersion_;
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-         */
-        public boolean hasProtocolVersion() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion() {
-            return protocolVersion_;
-        }
-
-        public static final int SOURCE_ID_FIELD_NUMBER = 2;
-        private java.lang.Object sourceId_;
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        public boolean hasSourceId() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        public java.lang.String getSourceId() {
-            java.lang.Object ref = sourceId_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                if (bs.isValidUtf8()) {
-                    sourceId_ = s;
-                }
-                return s;
-            }
-        }
-        /**
-         * <code>required string source_id = 2;</code>
-         *
-         * <pre>
-         * source and destination ids identify the origin and destination of the
-         * message.  They are used to route messages between endpoints that share a
-         * device-to-device channel.
-         * For messages between applications:
-         *   - The sender application id is a unique identifier generated on behalf of
-         *     the sender application.
-         *   - The receiver id is always the the session id for the application.
-         * For messages to or from the sender or receiver platform, the special ids
-         * 'sender-0' and 'receiver-0' can be used.
-         * For messages intended for all endpoints using a given channel, the
-         * wildcard destination_id '*' can be used.
-         * </pre>
-         */
-        public com.google.protobuf.ByteString
-        getSourceIdBytes() {
-            java.lang.Object ref = sourceId_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                sourceId_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        public static final int DESTINATION_ID_FIELD_NUMBER = 3;
-        private java.lang.Object destinationId_;
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        public boolean hasDestinationId() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        public java.lang.String getDestinationId() {
-            java.lang.Object ref = destinationId_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                if (bs.isValidUtf8()) {
-                    destinationId_ = s;
-                }
-                return s;
-            }
-        }
-        /**
-         * <code>required string destination_id = 3;</code>
-         */
-        public com.google.protobuf.ByteString
-        getDestinationIdBytes() {
-            java.lang.Object ref = destinationId_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                destinationId_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        public static final int NAMESPACE_FIELD_NUMBER = 4;
-        private java.lang.Object namespace_;
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        public boolean hasNamespace() {
-            return ((bitField0_ & 0x00000008) == 0x00000008);
-        }
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        public java.lang.String getNamespace() {
-            java.lang.Object ref = namespace_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                if (bs.isValidUtf8()) {
-                    namespace_ = s;
-                }
-                return s;
-            }
-        }
-        /**
-         * <code>required string namespace = 4;</code>
-         *
-         * <pre>
-         * This is the core multiplexing key.  All messages are sent on a namespace
-         * and endpoints sharing a channel listen on one or more namespaces.  The
-         * namespace defines the protocol and semantics of the message.
-         * </pre>
-         */
-        public com.google.protobuf.ByteString
-        getNamespaceBytes() {
-            java.lang.Object ref = namespace_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                namespace_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        public static final int PAYLOAD_TYPE_FIELD_NUMBER = 5;
-        private su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType payloadType_;
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-         */
-        public boolean hasPayloadType() {
-            return ((bitField0_ & 0x00000010) == 0x00000010);
-        }
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType() {
-            return payloadType_;
-        }
-
-        public static final int PAYLOAD_UTF8_FIELD_NUMBER = 6;
-        private java.lang.Object payloadUtf8_;
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        public boolean hasPayloadUtf8() {
-            return ((bitField0_ & 0x00000020) == 0x00000020);
-        }
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        public java.lang.String getPayloadUtf8() {
-            java.lang.Object ref = payloadUtf8_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
-            } else {
-                com.google.protobuf.ByteString bs =
-                        (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
-                if (bs.isValidUtf8()) {
-                    payloadUtf8_ = s;
-                }
-                return s;
-            }
-        }
-        /**
-         * <code>optional string payload_utf8 = 6;</code>
-         *
-         * <pre>
-         * Depending on payload_type, exactly one of the following optional fields
-         * will always be set.
-         * </pre>
-         */
-        public com.google.protobuf.ByteString
-        getPayloadUtf8Bytes() {
-            java.lang.Object ref = payloadUtf8_;
-            if (ref instanceof java.lang.String) {
-                com.google.protobuf.ByteString b =
-                        com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
-                payloadUtf8_ = b;
-                return b;
-            } else {
-                return (com.google.protobuf.ByteString) ref;
-            }
-        }
-
-        public static final int PAYLOAD_BINARY_FIELD_NUMBER = 7;
-        private com.google.protobuf.ByteString payloadBinary_;
-        /**
-         * <code>optional bytes payload_binary = 7;</code>
-         */
-        public boolean hasPayloadBinary() {
-            return ((bitField0_ & 0x00000040) == 0x00000040);
-        }
-        /**
-         * <code>optional bytes payload_binary = 7;</code>
-         */
-        public com.google.protobuf.ByteString getPayloadBinary() {
-            return payloadBinary_;
-        }
-
-        private void initFields() {
-            protocolVersion_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
-            sourceId_ = "";
-            destinationId_ = "";
-            namespace_ = "";
-            payloadType_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.STRING;
-            payloadUtf8_ = "";
-            payloadBinary_ = com.google.protobuf.ByteString.EMPTY;
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            if (!hasProtocolVersion()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasSourceId()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasDestinationId()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasNamespace()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            if (!hasPayloadType()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeEnum(1, protocolVersion_.getNumber());
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                output.writeBytes(2, getSourceIdBytes());
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                output.writeBytes(3, getDestinationIdBytes());
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                output.writeBytes(4, getNamespaceBytes());
-            }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
-                output.writeEnum(5, payloadType_.getNumber());
-            }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                output.writeBytes(6, getPayloadUtf8Bytes());
-            }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-                output.writeBytes(7, payloadBinary_);
-            }
-            output.writeRawBytes(unknownFields);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, protocolVersion_.getNumber());
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(2, getSourceIdBytes());
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(3, getDestinationIdBytes());
-            }
-            if (((bitField0_ & 0x00000008) == 0x00000008)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(4, getNamespaceBytes());
-            }
-            if (((bitField0_ & 0x00000010) == 0x00000010)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(5, payloadType_.getNumber());
-            }
-            if (((bitField0_ & 0x00000020) == 0x00000020)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(6, getPayloadUtf8Bytes());
-            }
-            if (((bitField0_ & 0x00000040) == 0x00000040)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(7, payloadBinary_);
-            }
-            size += unknownFields.size();
-            memoizedSerializedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
-        }
-
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.CastMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.CastMessage prototype) {
-            return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        /**
-         * Protobuf type {@code su.litvak.chromecast.api.v2.CastMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageLite.Builder<
-                        su.litvak.chromecast.api.v2.CastChannel.CastMessage, Builder>
-                implements
-                // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.CastMessage)
-                su.litvak.chromecast.api.v2.CastChannel.CastMessageOrBuilder {
-            // Construct using su.litvak.chromecast.api.v2.CastChannel.CastMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-            }
-            private static Builder create() {
-                return new Builder();
-            }
-
-            public Builder clear() {
-                super.clear();
-                protocolVersion_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                sourceId_ = "";
-                bitField0_ = (bitField0_ & ~0x00000002);
-                destinationId_ = "";
-                bitField0_ = (bitField0_ & ~0x00000004);
-                namespace_ = "";
-                bitField0_ = (bitField0_ & ~0x00000008);
-                payloadType_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.STRING;
-                bitField0_ = (bitField0_ & ~0x00000010);
-                payloadUtf8_ = "";
-                bitField0_ = (bitField0_ & ~0x00000020);
-                payloadBinary_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000040);
-                return this;
-            }
-
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.CastMessage getDefaultInstanceForType() {
-                return su.litvak.chromecast.api.v2.CastChannel.CastMessage.getDefaultInstance();
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.CastMessage build() {
-                su.litvak.chromecast.api.v2.CastChannel.CastMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.CastMessage buildPartial() {
-                su.litvak.chromecast.api.v2.CastChannel.CastMessage result = new su.litvak.chromecast.api.v2.CastChannel.CastMessage(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.protocolVersion_ = protocolVersion_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                    to_bitField0_ |= 0x00000002;
-                }
-                result.sourceId_ = sourceId_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-                    to_bitField0_ |= 0x00000004;
-                }
-                result.destinationId_ = destinationId_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-                    to_bitField0_ |= 0x00000008;
-                }
-                result.namespace_ = namespace_;
-                if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
-                    to_bitField0_ |= 0x00000010;
-                }
-                result.payloadType_ = payloadType_;
-                if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
-                    to_bitField0_ |= 0x00000020;
-                }
-                result.payloadUtf8_ = payloadUtf8_;
-                if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
-                    to_bitField0_ |= 0x00000040;
-                }
-                result.payloadBinary_ = payloadBinary_;
-                result.bitField0_ = to_bitField0_;
-                return result;
-            }
-
-            public Builder mergeFrom(su.litvak.chromecast.api.v2.CastChannel.CastMessage other) {
-                if (other == su.litvak.chromecast.api.v2.CastChannel.CastMessage.getDefaultInstance()) return this;
-                if (other.hasProtocolVersion()) {
-                    setProtocolVersion(other.getProtocolVersion());
-                }
-                if (other.hasSourceId()) {
-                    bitField0_ |= 0x00000002;
-                    sourceId_ = other.sourceId_;
-
-                }
-                if (other.hasDestinationId()) {
-                    bitField0_ |= 0x00000004;
-                    destinationId_ = other.destinationId_;
-
-                }
-                if (other.hasNamespace()) {
-                    bitField0_ |= 0x00000008;
-                    namespace_ = other.namespace_;
-
-                }
-                if (other.hasPayloadType()) {
-                    setPayloadType(other.getPayloadType());
-                }
-                if (other.hasPayloadUtf8()) {
-                    bitField0_ |= 0x00000020;
-                    payloadUtf8_ = other.payloadUtf8_;
-
-                }
-                if (other.hasPayloadBinary()) {
-                    setPayloadBinary(other.getPayloadBinary());
-                }
-                setUnknownFields(
-                        getUnknownFields().concat(other.unknownFields));
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                if (!hasProtocolVersion()) {
-
-                    return false;
-                }
-                if (!hasSourceId()) {
-
-                    return false;
-                }
-                if (!hasDestinationId()) {
-
-                    return false;
-                }
-                if (!hasNamespace()) {
-
-                    return false;
-                }
-                if (!hasPayloadType()) {
-
-                    return false;
-                }
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                su.litvak.chromecast.api.v2.CastChannel.CastMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (su.litvak.chromecast.api.v2.CastChannel.CastMessage) e.getUnfinishedMessage();
-                    throw e;
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion protocolVersion_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-             */
-            public boolean hasProtocolVersion() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion getProtocolVersion() {
-                return protocolVersion_;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-             */
-            public Builder setProtocolVersion(su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000001;
-                protocolVersion_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.ProtocolVersion protocol_version = 1;</code>
-             */
-            public Builder clearProtocolVersion() {
-                bitField0_ = (bitField0_ & ~0x00000001);
-                protocolVersion_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.ProtocolVersion.CASTV2_1_0;
-
-                return this;
-            }
-
-            private java.lang.Object sourceId_ = "";
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public boolean hasSourceId() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public java.lang.String getSourceId() {
-                java.lang.Object ref = sourceId_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    if (bs.isValidUtf8()) {
-                        sourceId_ = s;
-                    }
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public com.google.protobuf.ByteString
-            getSourceIdBytes() {
-                java.lang.Object ref = sourceId_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    sourceId_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public Builder setSourceId(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000002;
-                sourceId_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public Builder clearSourceId() {
-                bitField0_ = (bitField0_ & ~0x00000002);
-                sourceId_ = getDefaultInstance().getSourceId();
-
-                return this;
-            }
-            /**
-             * <code>required string source_id = 2;</code>
-             *
-             * <pre>
-             * source and destination ids identify the origin and destination of the
-             * message.  They are used to route messages between endpoints that share a
-             * device-to-device channel.
-             * For messages between applications:
-             *   - The sender application id is a unique identifier generated on behalf of
-             *     the sender application.
-             *   - The receiver id is always the the session id for the application.
-             * For messages to or from the sender or receiver platform, the special ids
-             * 'sender-0' and 'receiver-0' can be used.
-             * For messages intended for all endpoints using a given channel, the
-             * wildcard destination_id '*' can be used.
-             * </pre>
-             */
-            public Builder setSourceIdBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000002;
-                sourceId_ = value;
-
-                return this;
-            }
-
-            private java.lang.Object destinationId_ = "";
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public boolean hasDestinationId() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
-            }
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public java.lang.String getDestinationId() {
-                java.lang.Object ref = destinationId_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    if (bs.isValidUtf8()) {
-                        destinationId_ = s;
-                    }
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public com.google.protobuf.ByteString
-            getDestinationIdBytes() {
-                java.lang.Object ref = destinationId_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    destinationId_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public Builder setDestinationId(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000004;
-                destinationId_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public Builder clearDestinationId() {
-                bitField0_ = (bitField0_ & ~0x00000004);
-                destinationId_ = getDefaultInstance().getDestinationId();
-
-                return this;
-            }
-            /**
-             * <code>required string destination_id = 3;</code>
-             */
-            public Builder setDestinationIdBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000004;
-                destinationId_ = value;
-
-                return this;
-            }
-
-            private java.lang.Object namespace_ = "";
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public boolean hasNamespace() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
-            }
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public java.lang.String getNamespace() {
-                java.lang.Object ref = namespace_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    if (bs.isValidUtf8()) {
-                        namespace_ = s;
-                    }
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public com.google.protobuf.ByteString
-            getNamespaceBytes() {
-                java.lang.Object ref = namespace_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    namespace_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public Builder setNamespace(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000008;
-                namespace_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public Builder clearNamespace() {
-                bitField0_ = (bitField0_ & ~0x00000008);
-                namespace_ = getDefaultInstance().getNamespace();
-
-                return this;
-            }
-            /**
-             * <code>required string namespace = 4;</code>
-             *
-             * <pre>
-             * This is the core multiplexing key.  All messages are sent on a namespace
-             * and endpoints sharing a channel listen on one or more namespaces.  The
-             * namespace defines the protocol and semantics of the message.
-             * </pre>
-             */
-            public Builder setNamespaceBytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000008;
-                namespace_ = value;
-
-                return this;
-            }
-
-            private su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType payloadType_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.STRING;
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-             */
-            public boolean hasPayloadType() {
-                return ((bitField0_ & 0x00000010) == 0x00000010);
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType getPayloadType() {
-                return payloadType_;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-             */
-            public Builder setPayloadType(su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000010;
-                payloadType_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.CastMessage.PayloadType payload_type = 5;</code>
-             */
-            public Builder clearPayloadType() {
-                bitField0_ = (bitField0_ & ~0x00000010);
-                payloadType_ = su.litvak.chromecast.api.v2.CastChannel.CastMessage.PayloadType.STRING;
-
-                return this;
-            }
-
-            private java.lang.Object payloadUtf8_ = "";
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public boolean hasPayloadUtf8() {
-                return ((bitField0_ & 0x00000020) == 0x00000020);
-            }
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public java.lang.String getPayloadUtf8() {
-                java.lang.Object ref = payloadUtf8_;
-                if (!(ref instanceof java.lang.String)) {
-                    com.google.protobuf.ByteString bs =
-                            (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
-                    if (bs.isValidUtf8()) {
-                        payloadUtf8_ = s;
-                    }
-                    return s;
-                } else {
-                    return (java.lang.String) ref;
-                }
-            }
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public com.google.protobuf.ByteString
-            getPayloadUtf8Bytes() {
-                java.lang.Object ref = payloadUtf8_;
-                if (ref instanceof String) {
-                    com.google.protobuf.ByteString b =
-                            com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
-                    payloadUtf8_ = b;
-                    return b;
-                } else {
-                    return (com.google.protobuf.ByteString) ref;
-                }
-            }
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public Builder setPayloadUtf8(
-                    java.lang.String value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000020;
-                payloadUtf8_ = value;
-
-                return this;
-            }
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public Builder clearPayloadUtf8() {
-                bitField0_ = (bitField0_ & ~0x00000020);
-                payloadUtf8_ = getDefaultInstance().getPayloadUtf8();
-
-                return this;
-            }
-            /**
-             * <code>optional string payload_utf8 = 6;</code>
-             *
-             * <pre>
-             * Depending on payload_type, exactly one of the following optional fields
-             * will always be set.
-             * </pre>
-             */
-            public Builder setPayloadUtf8Bytes(
-                    com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000020;
-                payloadUtf8_ = value;
-
-                return this;
-            }
-
-            private com.google.protobuf.ByteString payloadBinary_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>optional bytes payload_binary = 7;</code>
-             */
-            public boolean hasPayloadBinary() {
-                return ((bitField0_ & 0x00000040) == 0x00000040);
-            }
-            /**
-             * <code>optional bytes payload_binary = 7;</code>
-             */
-            public com.google.protobuf.ByteString getPayloadBinary() {
-                return payloadBinary_;
-            }
-            /**
-             * <code>optional bytes payload_binary = 7;</code>
-             */
-            public Builder setPayloadBinary(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000040;
-                payloadBinary_ = value;
-
-                return this;
-            }
-            /**
-             * <code>optional bytes payload_binary = 7;</code>
-             */
-            public Builder clearPayloadBinary() {
-                bitField0_ = (bitField0_ & ~0x00000040);
-                payloadBinary_ = getDefaultInstance().getPayloadBinary();
-
-                return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.CastMessage)
-        }
-
-        static {
-            defaultInstance = new CastMessage(true);
-            defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.CastMessage)
+        case GET_PARSER: {
+          com.google.protobuf.Parser<su.litvak.chromecast.api.v2.CastChannel.CastMessage> parser = PARSER;
+          if (parser == null) {
+            synchronized (su.litvak.chromecast.api.v2.CastChannel.CastMessage.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<su.litvak.chromecast.api.v2.CastChannel.CastMessage>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
+            }
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return memoizedIsInitialized;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        memoizedIsInitialized = (byte) (arg0 == null ? 0 : 1);
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
     }
 
-    public interface AuthChallengeOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthChallenge)
-            com.google.protobuf.MessageLiteOrBuilder {
 
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-         */
-        boolean hasSignatureAlgorithm();
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm();
+    // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.CastMessage)
+    private static final su.litvak.chromecast.api.v2.CastChannel.CastMessage DEFAULT_INSTANCE;
+    static {
+      CastMessage defaultInstance = new CastMessage();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        CastMessage.class, defaultInstance);
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.CastMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<CastMessage> PARSER;
+
+    public static com.google.protobuf.Parser<CastMessage> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AuthChallengeOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthChallenge)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     * @return Whether the signatureAlgorithm field is set.
+     */
+    boolean hasSignatureAlgorithm();
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     * @return The signatureAlgorithm.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm();
+  }
+  /**
+   * <pre>
+   * Messages for authentication protocol between a sender and a receiver.
+   * </pre>
+   *
+   * Protobuf type {@code su.litvak.chromecast.api.v2.AuthChallenge}
+   */
+  public  static final class AuthChallenge extends
+      com.google.protobuf.GeneratedMessageLite<
+          AuthChallenge, AuthChallenge.Builder> implements
+      // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthChallenge)
+      AuthChallengeOrBuilder {
+    private AuthChallenge() {
+      signatureAlgorithm_ = 1;
+    }
+    private int bitField0_;
+    public static final int SIGNATURE_ALGORITHM_FIELD_NUMBER = 1;
+    private int signatureAlgorithm_;
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     * @return Whether the signatureAlgorithm field is set.
+     */
+    @java.lang.Override
+    public boolean hasSignatureAlgorithm() {
+      return ((bitField0_ & 0x00000001) != 0);
     }
     /**
-     * Protobuf type {@code su.litvak.chromecast.api.v2.AuthChallenge}
-     *
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     * @return The signatureAlgorithm.
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
+      su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm result = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.forNumber(signatureAlgorithm_);
+      return result == null ? su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15 : result;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     * @param value The signatureAlgorithm to set.
+     */
+    private void setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
+      signatureAlgorithm_ = value.getNumber();
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+     */
+    private void clearSignatureAlgorithm() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      signatureAlgorithm_ = 1;
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
+    /**
      * <pre>
      * Messages for authentication protocol between a sender and a receiver.
      * </pre>
+     *
+     * Protobuf type {@code su.litvak.chromecast.api.v2.AuthChallenge}
      */
-    public static final class AuthChallenge extends
-            com.google.protobuf.GeneratedMessageLite implements
-            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthChallenge)
-            AuthChallengeOrBuilder {
-        // Use AuthChallenge.newBuilder() to construct.
-        private AuthChallenge(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
-        }
-        private AuthChallenge(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          su.litvak.chromecast.api.v2.CastChannel.AuthChallenge, Builder> implements
+        // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthChallenge)
+        su.litvak.chromecast.api.v2.CastChannel.AuthChallengeOrBuilder {
+      // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
 
-        private static final AuthChallenge defaultInstance;
-        public static AuthChallenge getDefaultInstance() {
-            return defaultInstance;
-        }
 
-        public AuthChallenge getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+       * @return Whether the signatureAlgorithm field is set.
+       */
+      @java.lang.Override
+      public boolean hasSignatureAlgorithm() {
+        return instance.hasSignatureAlgorithm();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+       * @return The signatureAlgorithm.
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
+        return instance.getSignatureAlgorithm();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+       * @param value The enum numeric value on the wire for signatureAlgorithm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
+        copyOnWrite();
+        instance.setSignatureAlgorithm(value);
+        return this;
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSignatureAlgorithm() {
+        copyOnWrite();
+        instance.clearSignatureAlgorithm();
+        return this;
+      }
 
-        private final com.google.protobuf.ByteString unknownFields;
-        private AuthChallenge(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput =
-                    com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-                    com.google.protobuf.CodedOutputStream.newInstance(
-                            unknownFieldsOutput);
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
-                            su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFieldsCodedOutput.writeRawVarint32(tag);
-                                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
-                            } else {
-                                bitField0_ |= 0x00000001;
-                                signatureAlgorithm_ = value;
-                            }
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-                try {
-                    unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
-                    // Should not happen
-                } finally {
-                    unknownFields = unknownFieldsOutput.toByteString();
-                }
-                makeExtensionsImmutable();
+      // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthChallenge)
+    }
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new su.litvak.chromecast.api.v2.CastChannel.AuthChallenge();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "signatureAlgorithm_",
+              su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.internalGetVerifier(),
+            };
+            java.lang.String info =
+                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0001\f\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<su.litvak.chromecast.api.v2.CastChannel.AuthChallenge> parser = PARSER;
+          if (parser == null) {
+            synchronized (su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<su.litvak.chromecast.api.v2.CastChannel.AuthChallenge>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
             }
-        }
-        public static com.google.protobuf.Parser<AuthChallenge> PARSER =
-                new com.google.protobuf.AbstractParser<AuthChallenge>() {
-                    public AuthChallenge parsePartialFrom(
-                            com.google.protobuf.CodedInputStream input,
-                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                            throws com.google.protobuf.InvalidProtocolBufferException {
-                        return new AuthChallenge(input, extensionRegistry);
-                    }
-                };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<AuthChallenge> getParserForType() {
-            return PARSER;
-        }
-
-        private int bitField0_;
-        public static final int SIGNATURE_ALGORITHM_FIELD_NUMBER = 1;
-        private su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm signatureAlgorithm_;
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-         */
-        public boolean hasSignatureAlgorithm() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
-            return signatureAlgorithm_;
-        }
-
-        private void initFields() {
-            signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeEnum(1, signatureAlgorithm_.getNumber());
-            }
-            output.writeRawBytes(unknownFields);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, signatureAlgorithm_.getNumber());
-            }
-            size += unknownFields.size();
-            memoizedSerializedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
-        }
-
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge prototype) {
-            return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        /**
-         * Protobuf type {@code su.litvak.chromecast.api.v2.AuthChallenge}
-         *
-         * <pre>
-         * Messages for authentication protocol between a sender and a receiver.
-         * </pre>
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageLite.Builder<
-                        su.litvak.chromecast.api.v2.CastChannel.AuthChallenge, Builder>
-                implements
-                // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthChallenge)
-                su.litvak.chromecast.api.v2.CastChannel.AuthChallengeOrBuilder {
-            // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-            }
-            private static Builder create() {
-                return new Builder();
-            }
-
-            public Builder clear() {
-                super.clear();
-                signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                return this;
-            }
-
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getDefaultInstanceForType() {
-                return su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance();
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge build() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthChallenge result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge buildPartial() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthChallenge result = new su.litvak.chromecast.api.v2.CastChannel.AuthChallenge(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.signatureAlgorithm_ = signatureAlgorithm_;
-                result.bitField0_ = to_bitField0_;
-                return result;
-            }
-
-            public Builder mergeFrom(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge other) {
-                if (other == su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance()) return this;
-                if (other.hasSignatureAlgorithm()) {
-                    setSignatureAlgorithm(other.getSignatureAlgorithm());
-                }
-                setUnknownFields(
-                        getUnknownFields().concat(other.unknownFields));
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                su.litvak.chromecast.api.v2.CastChannel.AuthChallenge parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (su.litvak.chromecast.api.v2.CastChannel.AuthChallenge) e.getUnfinishedMessage();
-                    throw e;
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-             */
-            public boolean hasSignatureAlgorithm() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
-                return signatureAlgorithm_;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-             */
-            public Builder setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000001;
-                signatureAlgorithm_ = value;
-
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 1 [default = RSASSA_PKCS1v15];</code>
-             */
-            public Builder clearSignatureAlgorithm() {
-                bitField0_ = (bitField0_ & ~0x00000001);
-                signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-
-                return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthChallenge)
-        }
-
-        static {
-            defaultInstance = new AuthChallenge(true);
-            defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthChallenge)
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return (byte) 1;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
     }
 
-    public interface AuthResponseOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthResponse)
-            com.google.protobuf.MessageLiteOrBuilder {
 
-        /**
-         * <code>required bytes signature = 1;</code>
-         */
-        boolean hasSignature();
-        /**
-         * <code>required bytes signature = 1;</code>
-         */
-        com.google.protobuf.ByteString getSignature();
-
-        /**
-         * <code>required bytes client_auth_certificate = 2;</code>
-         */
-        boolean hasClientAuthCertificate();
-        /**
-         * <code>required bytes client_auth_certificate = 2;</code>
-         */
-        com.google.protobuf.ByteString getClientAuthCertificate();
-
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        java.util.List<com.google.protobuf.ByteString> getIntermediateCertificateList();
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        int getIntermediateCertificateCount();
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        com.google.protobuf.ByteString getIntermediateCertificate(int index);
-
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-         */
-        boolean hasSignatureAlgorithm();
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm();
+    // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthChallenge)
+    private static final su.litvak.chromecast.api.v2.CastChannel.AuthChallenge DEFAULT_INSTANCE;
+    static {
+      AuthChallenge defaultInstance = new AuthChallenge();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AuthChallenge.class, defaultInstance);
     }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AuthChallenge> PARSER;
+
+    public static com.google.protobuf.Parser<AuthChallenge> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AuthResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthResponse)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required bytes signature = 1;</code>
+     * @return Whether the signature field is set.
+     */
+    boolean hasSignature();
+    /**
+     * <code>required bytes signature = 1;</code>
+     * @return The signature.
+     */
+    com.google.protobuf.ByteString getSignature();
+
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     * @return Whether the clientAuthCertificate field is set.
+     */
+    boolean hasClientAuthCertificate();
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     * @return The clientAuthCertificate.
+     */
+    com.google.protobuf.ByteString getClientAuthCertificate();
+
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @return A list containing the intermediateCertificate.
+     */
+    java.util.List<com.google.protobuf.ByteString> getIntermediateCertificateList();
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @return The count of intermediateCertificate.
+     */
+    int getIntermediateCertificateCount();
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @param index The index of the element to return.
+     * @return The intermediateCertificate at the given index.
+     */
+    com.google.protobuf.ByteString getIntermediateCertificate(int index);
+
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     * @return Whether the signatureAlgorithm field is set.
+     */
+    boolean hasSignatureAlgorithm();
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     * @return The signatureAlgorithm.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm();
+  }
+  /**
+   * Protobuf type {@code su.litvak.chromecast.api.v2.AuthResponse}
+   */
+  public  static final class AuthResponse extends
+      com.google.protobuf.GeneratedMessageLite<
+          AuthResponse, AuthResponse.Builder> implements
+      // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthResponse)
+      AuthResponseOrBuilder {
+    private AuthResponse() {
+      signature_ = com.google.protobuf.ByteString.EMPTY;
+      clientAuthCertificate_ = com.google.protobuf.ByteString.EMPTY;
+      intermediateCertificate_ = emptyProtobufList();
+      signatureAlgorithm_ = 1;
+    }
+    private int bitField0_;
+    public static final int SIGNATURE_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString signature_;
+    /**
+     * <code>required bytes signature = 1;</code>
+     * @return Whether the signature field is set.
+     */
+    @java.lang.Override
+    public boolean hasSignature() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required bytes signature = 1;</code>
+     * @return The signature.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getSignature() {
+      return signature_;
+    }
+    /**
+     * <code>required bytes signature = 1;</code>
+     * @param value The signature to set.
+     */
+    private void setSignature(com.google.protobuf.ByteString value) {
+      value.getClass();
+  bitField0_ |= 0x00000001;
+      signature_ = value;
+    }
+    /**
+     * <code>required bytes signature = 1;</code>
+     */
+    private void clearSignature() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      signature_ = getDefaultInstance().getSignature();
+    }
+
+    public static final int CLIENT_AUTH_CERTIFICATE_FIELD_NUMBER = 2;
+    private com.google.protobuf.ByteString clientAuthCertificate_;
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     * @return Whether the clientAuthCertificate field is set.
+     */
+    @java.lang.Override
+    public boolean hasClientAuthCertificate() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     * @return The clientAuthCertificate.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getClientAuthCertificate() {
+      return clientAuthCertificate_;
+    }
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     * @param value The clientAuthCertificate to set.
+     */
+    private void setClientAuthCertificate(com.google.protobuf.ByteString value) {
+      value.getClass();
+  bitField0_ |= 0x00000002;
+      clientAuthCertificate_ = value;
+    }
+    /**
+     * <code>required bytes client_auth_certificate = 2;</code>
+     */
+    private void clearClientAuthCertificate() {
+      bitField0_ = (bitField0_ & ~0x00000002);
+      clientAuthCertificate_ = getDefaultInstance().getClientAuthCertificate();
+    }
+
+    public static final int INTERMEDIATE_CERTIFICATE_FIELD_NUMBER = 3;
+    private com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> intermediateCertificate_;
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @return A list containing the intermediateCertificate.
+     */
+    @java.lang.Override
+    public java.util.List<com.google.protobuf.ByteString>
+        getIntermediateCertificateList() {
+      return intermediateCertificate_;
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @return The count of intermediateCertificate.
+     */
+    @java.lang.Override
+    public int getIntermediateCertificateCount() {
+      return intermediateCertificate_.size();
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @param index The index of the element to return.
+     * @return The intermediateCertificate at the given index.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
+      return intermediateCertificate_.get(index);
+    }
+    private void ensureIntermediateCertificateIsMutable() {
+      if (!intermediateCertificate_.isModifiable()) {
+        intermediateCertificate_ =
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(intermediateCertificate_);
+       }
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @param index The index to set the value at.
+     * @param value The intermediateCertificate to set.
+     */
+    private void setIntermediateCertificate(
+        int index, com.google.protobuf.ByteString value) {
+      value.getClass();
+  ensureIntermediateCertificateIsMutable();
+      intermediateCertificate_.set(index, value);
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @param value The intermediateCertificate to add.
+     */
+    private void addIntermediateCertificate(com.google.protobuf.ByteString value) {
+      value.getClass();
+  ensureIntermediateCertificateIsMutable();
+      intermediateCertificate_.add(value);
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     * @param values The intermediateCertificate to add.
+     */
+    private void addAllIntermediateCertificate(
+        java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+      ensureIntermediateCertificateIsMutable();
+      com.google.protobuf.AbstractMessageLite.addAll(
+          values, intermediateCertificate_);
+    }
+    /**
+     * <code>repeated bytes intermediate_certificate = 3;</code>
+     */
+    private void clearIntermediateCertificate() {
+      intermediateCertificate_ = emptyProtobufList();
+    }
+
+    public static final int SIGNATURE_ALGORITHM_FIELD_NUMBER = 4;
+    private int signatureAlgorithm_;
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     * @return Whether the signatureAlgorithm field is set.
+     */
+    @java.lang.Override
+    public boolean hasSignatureAlgorithm() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     * @return The signatureAlgorithm.
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
+      su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm result = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.forNumber(signatureAlgorithm_);
+      return result == null ? su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15 : result;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     * @param value The signatureAlgorithm to set.
+     */
+    private void setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
+      signatureAlgorithm_ = value.getNumber();
+      bitField0_ |= 0x00000004;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+     */
+    private void clearSignatureAlgorithm() {
+      bitField0_ = (bitField0_ & ~0x00000004);
+      signatureAlgorithm_ = 1;
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthResponse prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
     /**
      * Protobuf type {@code su.litvak.chromecast.api.v2.AuthResponse}
      */
-    public static final class AuthResponse extends
-            com.google.protobuf.GeneratedMessageLite implements
-            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthResponse)
-            AuthResponseOrBuilder {
-        // Use AuthResponse.newBuilder() to construct.
-        private AuthResponse(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          su.litvak.chromecast.api.v2.CastChannel.AuthResponse, Builder> implements
+        // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthResponse)
+        su.litvak.chromecast.api.v2.CastChannel.AuthResponseOrBuilder {
+      // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthResponse.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <code>required bytes signature = 1;</code>
+       * @return Whether the signature field is set.
+       */
+      @java.lang.Override
+      public boolean hasSignature() {
+        return instance.hasSignature();
+      }
+      /**
+       * <code>required bytes signature = 1;</code>
+       * @return The signature.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getSignature() {
+        return instance.getSignature();
+      }
+      /**
+       * <code>required bytes signature = 1;</code>
+       * @param value The signature to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSignature(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setSignature(value);
+        return this;
+      }
+      /**
+       * <code>required bytes signature = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSignature() {
+        copyOnWrite();
+        instance.clearSignature();
+        return this;
+      }
+
+      /**
+       * <code>required bytes client_auth_certificate = 2;</code>
+       * @return Whether the clientAuthCertificate field is set.
+       */
+      @java.lang.Override
+      public boolean hasClientAuthCertificate() {
+        return instance.hasClientAuthCertificate();
+      }
+      /**
+       * <code>required bytes client_auth_certificate = 2;</code>
+       * @return The clientAuthCertificate.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getClientAuthCertificate() {
+        return instance.getClientAuthCertificate();
+      }
+      /**
+       * <code>required bytes client_auth_certificate = 2;</code>
+       * @param value The clientAuthCertificate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setClientAuthCertificate(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setClientAuthCertificate(value);
+        return this;
+      }
+      /**
+       * <code>required bytes client_auth_certificate = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearClientAuthCertificate() {
+        copyOnWrite();
+        instance.clearClientAuthCertificate();
+        return this;
+      }
+
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @return A list containing the intermediateCertificate.
+       */
+      @java.lang.Override
+      public java.util.List<com.google.protobuf.ByteString>
+          getIntermediateCertificateList() {
+        return java.util.Collections.unmodifiableList(
+            instance.getIntermediateCertificateList());
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @return The count of intermediateCertificate.
+       */
+      @java.lang.Override
+      public int getIntermediateCertificateCount() {
+        return instance.getIntermediateCertificateCount();
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @param index The index of the element to return.
+       * @return The intermediateCertificate at the given index.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
+        return instance.getIntermediateCertificate(index);
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @param value The intermediateCertificate to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIntermediateCertificate(
+          int index, com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.setIntermediateCertificate(index, value);
+        return this;
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @param value The intermediateCertificate to add.
+       * @return This builder for chaining.
+       */
+      public Builder addIntermediateCertificate(com.google.protobuf.ByteString value) {
+        copyOnWrite();
+        instance.addIntermediateCertificate(value);
+        return this;
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @param values The intermediateCertificate to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllIntermediateCertificate(
+          java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
+        copyOnWrite();
+        instance.addAllIntermediateCertificate(values);
+        return this;
+      }
+      /**
+       * <code>repeated bytes intermediate_certificate = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIntermediateCertificate() {
+        copyOnWrite();
+        instance.clearIntermediateCertificate();
+        return this;
+      }
+
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+       * @return Whether the signatureAlgorithm field is set.
+       */
+      @java.lang.Override
+      public boolean hasSignatureAlgorithm() {
+        return instance.hasSignatureAlgorithm();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+       * @return The signatureAlgorithm.
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
+        return instance.getSignatureAlgorithm();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+       * @param value The enum numeric value on the wire for signatureAlgorithm to set.
+       * @return This builder for chaining.
+       */
+      public Builder setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
+        copyOnWrite();
+        instance.setSignatureAlgorithm(value);
+        return this;
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearSignatureAlgorithm() {
+        copyOnWrite();
+        instance.clearSignatureAlgorithm();
+        return this;
+      }
+
+      // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthResponse)
+    }
+    private byte memoizedIsInitialized = 2;
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new su.litvak.chromecast.api.v2.CastChannel.AuthResponse();
         }
-        private AuthResponse(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
-
-        private static final AuthResponse defaultInstance;
-        public static AuthResponse getDefaultInstance() {
-            return defaultInstance;
+        case NEW_BUILDER: {
+          return new Builder();
         }
-
-        public AuthResponse getDefaultInstanceForType() {
-            return defaultInstance;
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "signature_",
+              "clientAuthCertificate_",
+              "intermediateCertificate_",
+              "signatureAlgorithm_",
+              su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.internalGetVerifier(),
+            };
+            java.lang.String info =
+                "\u0001\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0001\u0002\u0001\u050a\u0000\u0002" +
+                "\u050a\u0001\u0003\u001c\u0004\f\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-
-        private final com.google.protobuf.ByteString unknownFields;
-        private AuthResponse(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput =
-                    com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-                    com.google.protobuf.CodedOutputStream.newInstance(
-                            unknownFieldsOutput);
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            bitField0_ |= 0x00000001;
-                            signature_ = input.readBytes();
-                            break;
-                        }
-                        case 18: {
-                            bitField0_ |= 0x00000002;
-                            clientAuthCertificate_ = input.readBytes();
-                            break;
-                        }
-                        case 26: {
-                            if (!((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                                intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>();
-                                mutable_bitField0_ |= 0x00000004;
-                            }
-                            intermediateCertificate_.add(input.readBytes());
-                            break;
-                        }
-                        case 32: {
-                            int rawValue = input.readEnum();
-                            su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFieldsCodedOutput.writeRawVarint32(tag);
-                                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
-                            } else {
-                                bitField0_ |= 0x00000004;
-                                signatureAlgorithm_ = value;
-                            }
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-                if (((mutable_bitField0_ & 0x00000004) == 0x00000004)) {
-                    intermediateCertificate_ = java.util.Collections.unmodifiableList(intermediateCertificate_);
-                }
-                try {
-                    unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
-                    // Should not happen
-                } finally {
-                    unknownFields = unknownFieldsOutput.toByteString();
-                }
-                makeExtensionsImmutable();
-            }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
         }
-        public static com.google.protobuf.Parser<AuthResponse> PARSER =
-                new com.google.protobuf.AbstractParser<AuthResponse>() {
-                    public AuthResponse parsePartialFrom(
-                            com.google.protobuf.CodedInputStream input,
-                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                            throws com.google.protobuf.InvalidProtocolBufferException {
-                        return new AuthResponse(input, extensionRegistry);
-                    }
-                };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<AuthResponse> getParserForType() {
-            return PARSER;
-        }
-
-        private int bitField0_;
-        public static final int SIGNATURE_FIELD_NUMBER = 1;
-        private com.google.protobuf.ByteString signature_;
-        /**
-         * <code>required bytes signature = 1;</code>
-         */
-        public boolean hasSignature() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required bytes signature = 1;</code>
-         */
-        public com.google.protobuf.ByteString getSignature() {
-            return signature_;
-        }
-
-        public static final int CLIENT_AUTH_CERTIFICATE_FIELD_NUMBER = 2;
-        private com.google.protobuf.ByteString clientAuthCertificate_;
-        /**
-         * <code>required bytes client_auth_certificate = 2;</code>
-         */
-        public boolean hasClientAuthCertificate() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>required bytes client_auth_certificate = 2;</code>
-         */
-        public com.google.protobuf.ByteString getClientAuthCertificate() {
-            return clientAuthCertificate_;
-        }
-
-        public static final int INTERMEDIATE_CERTIFICATE_FIELD_NUMBER = 3;
-        private java.util.List<com.google.protobuf.ByteString> intermediateCertificate_;
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        public java.util.List<com.google.protobuf.ByteString>
-        getIntermediateCertificateList() {
-            return intermediateCertificate_;
-        }
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        public int getIntermediateCertificateCount() {
-            return intermediateCertificate_.size();
-        }
-        /**
-         * <code>repeated bytes intermediate_certificate = 3;</code>
-         */
-        public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
-            return intermediateCertificate_.get(index);
-        }
-
-        public static final int SIGNATURE_ALGORITHM_FIELD_NUMBER = 4;
-        private su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm signatureAlgorithm_;
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-         */
-        public boolean hasSignatureAlgorithm() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
-            return signatureAlgorithm_;
-        }
-
-        private void initFields() {
-            signature_ = com.google.protobuf.ByteString.EMPTY;
-            clientAuthCertificate_ = com.google.protobuf.ByteString.EMPTY;
-            intermediateCertificate_ = java.util.Collections.emptyList();
-            signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            if (!hasSignature()) {
-                memoizedIsInitialized = 0;
-                return false;
+        case GET_PARSER: {
+          com.google.protobuf.Parser<su.litvak.chromecast.api.v2.CastChannel.AuthResponse> parser = PARSER;
+          if (parser == null) {
+            synchronized (su.litvak.chromecast.api.v2.CastChannel.AuthResponse.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<su.litvak.chromecast.api.v2.CastChannel.AuthResponse>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
             }
-            if (!hasClientAuthCertificate()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeBytes(1, signature_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                output.writeBytes(2, clientAuthCertificate_);
-            }
-            for (int i = 0; i < intermediateCertificate_.size(); i++) {
-                output.writeBytes(3, intermediateCertificate_.get(i));
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                output.writeEnum(4, signatureAlgorithm_.getNumber());
-            }
-            output.writeRawBytes(unknownFields);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(1, signature_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeBytesSize(2, clientAuthCertificate_);
-            }
-            {
-                int dataSize = 0;
-                for (int i = 0; i < intermediateCertificate_.size(); i++) {
-                    dataSize += com.google.protobuf.CodedOutputStream
-                            .computeBytesSizeNoTag(intermediateCertificate_.get(i));
-                }
-                size += dataSize;
-                size += 1 * getIntermediateCertificateList().size();
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(4, signatureAlgorithm_.getNumber());
-            }
-            size += unknownFields.size();
-            memoizedSerializedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
-        }
-
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthResponse prototype) {
-            return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        /**
-         * Protobuf type {@code su.litvak.chromecast.api.v2.AuthResponse}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageLite.Builder<
-                        su.litvak.chromecast.api.v2.CastChannel.AuthResponse, Builder>
-                implements
-                // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthResponse)
-                su.litvak.chromecast.api.v2.CastChannel.AuthResponseOrBuilder {
-            // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthResponse.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-            }
-            private static Builder create() {
-                return new Builder();
-            }
-
-            public Builder clear() {
-                super.clear();
-                signature_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                clientAuthCertificate_ = com.google.protobuf.ByteString.EMPTY;
-                bitField0_ = (bitField0_ & ~0x00000002);
-                intermediateCertificate_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000004);
-                signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-                bitField0_ = (bitField0_ & ~0x00000008);
-                return this;
-            }
-
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthResponse getDefaultInstanceForType() {
-                return su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance();
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthResponse build() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthResponse result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthResponse buildPartial() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthResponse result = new su.litvak.chromecast.api.v2.CastChannel.AuthResponse(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.signature_ = signature_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                    to_bitField0_ |= 0x00000002;
-                }
-                result.clientAuthCertificate_ = clientAuthCertificate_;
-                if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                    intermediateCertificate_ = java.util.Collections.unmodifiableList(intermediateCertificate_);
-                    bitField0_ = (bitField0_ & ~0x00000004);
-                }
-                result.intermediateCertificate_ = intermediateCertificate_;
-                if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-                    to_bitField0_ |= 0x00000004;
-                }
-                result.signatureAlgorithm_ = signatureAlgorithm_;
-                result.bitField0_ = to_bitField0_;
-                return result;
-            }
-
-            public Builder mergeFrom(su.litvak.chromecast.api.v2.CastChannel.AuthResponse other) {
-                if (other == su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance()) return this;
-                if (other.hasSignature()) {
-                    setSignature(other.getSignature());
-                }
-                if (other.hasClientAuthCertificate()) {
-                    setClientAuthCertificate(other.getClientAuthCertificate());
-                }
-                if (!other.intermediateCertificate_.isEmpty()) {
-                    if (intermediateCertificate_.isEmpty()) {
-                        intermediateCertificate_ = other.intermediateCertificate_;
-                        bitField0_ = (bitField0_ & ~0x00000004);
-                    } else {
-                        ensureIntermediateCertificateIsMutable();
-                        intermediateCertificate_.addAll(other.intermediateCertificate_);
-                    }
-
-                }
-                if (other.hasSignatureAlgorithm()) {
-                    setSignatureAlgorithm(other.getSignatureAlgorithm());
-                }
-                setUnknownFields(
-                        getUnknownFields().concat(other.unknownFields));
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                if (!hasSignature()) {
-
-                    return false;
-                }
-                if (!hasClientAuthCertificate()) {
-
-                    return false;
-                }
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                su.litvak.chromecast.api.v2.CastChannel.AuthResponse parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (su.litvak.chromecast.api.v2.CastChannel.AuthResponse) e.getUnfinishedMessage();
-                    throw e;
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private com.google.protobuf.ByteString signature_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>required bytes signature = 1;</code>
-             */
-            public boolean hasSignature() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>required bytes signature = 1;</code>
-             */
-            public com.google.protobuf.ByteString getSignature() {
-                return signature_;
-            }
-            /**
-             * <code>required bytes signature = 1;</code>
-             */
-            public Builder setSignature(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000001;
-                signature_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required bytes signature = 1;</code>
-             */
-            public Builder clearSignature() {
-                bitField0_ = (bitField0_ & ~0x00000001);
-                signature_ = getDefaultInstance().getSignature();
-
-                return this;
-            }
-
-            private com.google.protobuf.ByteString clientAuthCertificate_ = com.google.protobuf.ByteString.EMPTY;
-            /**
-             * <code>required bytes client_auth_certificate = 2;</code>
-             */
-            public boolean hasClientAuthCertificate() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-            /**
-             * <code>required bytes client_auth_certificate = 2;</code>
-             */
-            public com.google.protobuf.ByteString getClientAuthCertificate() {
-                return clientAuthCertificate_;
-            }
-            /**
-             * <code>required bytes client_auth_certificate = 2;</code>
-             */
-            public Builder setClientAuthCertificate(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000002;
-                clientAuthCertificate_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required bytes client_auth_certificate = 2;</code>
-             */
-            public Builder clearClientAuthCertificate() {
-                bitField0_ = (bitField0_ & ~0x00000002);
-                clientAuthCertificate_ = getDefaultInstance().getClientAuthCertificate();
-
-                return this;
-            }
-
-            private java.util.List<com.google.protobuf.ByteString> intermediateCertificate_ = java.util.Collections.emptyList();
-            private void ensureIntermediateCertificateIsMutable() {
-                if (!((bitField0_ & 0x00000004) == 0x00000004)) {
-                    intermediateCertificate_ = new java.util.ArrayList<com.google.protobuf.ByteString>(intermediateCertificate_);
-                    bitField0_ |= 0x00000004;
-                }
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public java.util.List<com.google.protobuf.ByteString>
-            getIntermediateCertificateList() {
-                return java.util.Collections.unmodifiableList(intermediateCertificate_);
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public int getIntermediateCertificateCount() {
-                return intermediateCertificate_.size();
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public com.google.protobuf.ByteString getIntermediateCertificate(int index) {
-                return intermediateCertificate_.get(index);
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public Builder setIntermediateCertificate(
-                    int index, com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureIntermediateCertificateIsMutable();
-                intermediateCertificate_.set(index, value);
-
-                return this;
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public Builder addIntermediateCertificate(com.google.protobuf.ByteString value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                ensureIntermediateCertificateIsMutable();
-                intermediateCertificate_.add(value);
-
-                return this;
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public Builder addAllIntermediateCertificate(
-                    java.lang.Iterable<? extends com.google.protobuf.ByteString> values) {
-                ensureIntermediateCertificateIsMutable();
-                com.google.protobuf.AbstractMessageLite.Builder.addAll(
-                        values, intermediateCertificate_);
-
-                return this;
-            }
-            /**
-             * <code>repeated bytes intermediate_certificate = 3;</code>
-             */
-            public Builder clearIntermediateCertificate() {
-                intermediateCertificate_ = java.util.Collections.emptyList();
-                bitField0_ = (bitField0_ & ~0x00000004);
-
-                return this;
-            }
-
-            private su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-             */
-            public boolean hasSignatureAlgorithm() {
-                return ((bitField0_ & 0x00000008) == 0x00000008);
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm getSignatureAlgorithm() {
-                return signatureAlgorithm_;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-             */
-            public Builder setSignatureAlgorithm(su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000008;
-                signatureAlgorithm_ = value;
-
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.SignatureAlgorithm signature_algorithm = 4 [default = RSASSA_PKCS1v15];</code>
-             */
-            public Builder clearSignatureAlgorithm() {
-                bitField0_ = (bitField0_ & ~0x00000008);
-                signatureAlgorithm_ = su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.RSASSA_PKCS1v15;
-
-                return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthResponse)
-        }
-
-        static {
-            defaultInstance = new AuthResponse(true);
-            defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthResponse)
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return memoizedIsInitialized;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        memoizedIsInitialized = (byte) (arg0 == null ? 0 : 1);
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
     }
 
-    public interface AuthErrorOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthError)
-            com.google.protobuf.MessageLiteOrBuilder {
 
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-         */
-        boolean hasErrorType();
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType();
+    // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthResponse)
+    private static final su.litvak.chromecast.api.v2.CastChannel.AuthResponse DEFAULT_INSTANCE;
+    static {
+      AuthResponse defaultInstance = new AuthResponse();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AuthResponse.class, defaultInstance);
     }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AuthResponse> PARSER;
+
+    public static com.google.protobuf.Parser<AuthResponse> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface AuthErrorOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.AuthError)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     * @return Whether the errorType field is set.
+     */
+    boolean hasErrorType();
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     * @return The errorType.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType();
+  }
+  /**
+   * Protobuf type {@code su.litvak.chromecast.api.v2.AuthError}
+   */
+  public  static final class AuthError extends
+      com.google.protobuf.GeneratedMessageLite<
+          AuthError, AuthError.Builder> implements
+      // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthError)
+      AuthErrorOrBuilder {
+    private AuthError() {
+    }
+    /**
+     * Protobuf enum {@code su.litvak.chromecast.api.v2.AuthError.ErrorType}
+     */
+    public enum ErrorType
+        implements com.google.protobuf.Internal.EnumLite {
+      /**
+       * <code>INTERNAL_ERROR = 0;</code>
+       */
+      INTERNAL_ERROR(0),
+      /**
+       * <pre>
+       * The underlying connection is not TLS
+       * </pre>
+       *
+       * <code>NO_TLS = 1;</code>
+       */
+      NO_TLS(1),
+      /**
+       * <code>SIGNATURE_ALGORITHM_UNAVAILABLE = 2;</code>
+       */
+      SIGNATURE_ALGORITHM_UNAVAILABLE(2),
+      ;
+
+      /**
+       * <code>INTERNAL_ERROR = 0;</code>
+       */
+      public static final int INTERNAL_ERROR_VALUE = 0;
+      /**
+       * <pre>
+       * The underlying connection is not TLS
+       * </pre>
+       *
+       * <code>NO_TLS = 1;</code>
+       */
+      public static final int NO_TLS_VALUE = 1;
+      /**
+       * <code>SIGNATURE_ALGORITHM_UNAVAILABLE = 2;</code>
+       */
+      public static final int SIGNATURE_ALGORITHM_UNAVAILABLE_VALUE = 2;
+
+
+      @java.lang.Override
+      public final int getNumber() {
+        return value;
+      }
+
+      /**
+       * @param value The number of the enum to look for.
+       * @return The enum associated with the given number.
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static ErrorType valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static ErrorType forNumber(int value) {
+        switch (value) {
+          case 0: return INTERNAL_ERROR;
+          case 1: return NO_TLS;
+          case 2: return SIGNATURE_ALGORITHM_UNAVAILABLE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          ErrorType> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
+              @java.lang.Override
+              public ErrorType findValueByNumber(int number) {
+                return ErrorType.forNumber(number);
+              }
+            };
+
+      public static com.google.protobuf.Internal.EnumVerifier 
+          internalGetVerifier() {
+        return ErrorTypeVerifier.INSTANCE;
+      }
+
+      private static final class ErrorTypeVerifier implements 
+           com.google.protobuf.Internal.EnumVerifier { 
+              static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ErrorTypeVerifier();
+              @java.lang.Override
+              public boolean isInRange(int number) {
+                return ErrorType.forNumber(number) != null;
+              }
+            };
+
+      private final int value;
+
+      private ErrorType(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.AuthError.ErrorType)
+    }
+
+    private int bitField0_;
+    public static final int ERROR_TYPE_FIELD_NUMBER = 1;
+    private int errorType_;
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     * @return Whether the errorType field is set.
+     */
+    @java.lang.Override
+    public boolean hasErrorType() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     * @return The errorType.
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType() {
+      su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType result = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.forNumber(errorType_);
+      return result == null ? su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.INTERNAL_ERROR : result;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     * @param value The errorType to set.
+     */
+    private void setErrorType(su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType value) {
+      errorType_ = value.getNumber();
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+     */
+    private void clearErrorType() {
+      bitField0_ = (bitField0_ & ~0x00000001);
+      errorType_ = 0;
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthError prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
     /**
      * Protobuf type {@code su.litvak.chromecast.api.v2.AuthError}
      */
-    public static final class AuthError extends
-            com.google.protobuf.GeneratedMessageLite implements
-            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.AuthError)
-            AuthErrorOrBuilder {
-        // Use AuthError.newBuilder() to construct.
-        private AuthError(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
-        }
-        private AuthError(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          su.litvak.chromecast.api.v2.CastChannel.AuthError, Builder> implements
+        // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthError)
+        su.litvak.chromecast.api.v2.CastChannel.AuthErrorOrBuilder {
+      // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthError.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
 
-        private static final AuthError defaultInstance;
-        public static AuthError getDefaultInstance() {
-            return defaultInstance;
-        }
 
-        public AuthError getDefaultInstanceForType() {
-            return defaultInstance;
-        }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+       * @return Whether the errorType field is set.
+       */
+      @java.lang.Override
+      public boolean hasErrorType() {
+        return instance.hasErrorType();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+       * @return The errorType.
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType() {
+        return instance.getErrorType();
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+       * @param value The enum numeric value on the wire for errorType to set.
+       * @return This builder for chaining.
+       */
+      public Builder setErrorType(su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType value) {
+        copyOnWrite();
+        instance.setErrorType(value);
+        return this;
+      }
+      /**
+       * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearErrorType() {
+        copyOnWrite();
+        instance.clearErrorType();
+        return this;
+      }
 
-        private final com.google.protobuf.ByteString unknownFields;
-        private AuthError(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput =
-                    com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-                    com.google.protobuf.CodedOutputStream.newInstance(
-                            unknownFieldsOutput);
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 8: {
-                            int rawValue = input.readEnum();
-                            su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType value = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.valueOf(rawValue);
-                            if (value == null) {
-                                unknownFieldsCodedOutput.writeRawVarint32(tag);
-                                unknownFieldsCodedOutput.writeRawVarint32(rawValue);
-                            } else {
-                                bitField0_ |= 0x00000001;
-                                errorType_ = value;
-                            }
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-                try {
-                    unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
-                    // Should not happen
-                } finally {
-                    unknownFields = unknownFieldsOutput.toByteString();
-                }
-                makeExtensionsImmutable();
+      // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthError)
+    }
+    private byte memoizedIsInitialized = 2;
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new su.litvak.chromecast.api.v2.CastChannel.AuthError();
+        }
+        case NEW_BUILDER: {
+          return new Builder();
+        }
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "errorType_",
+              su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.internalGetVerifier(),
+            };
+            java.lang.String info =
+                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0001\u0001\u050c\u0000";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
+        }
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
+        }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<su.litvak.chromecast.api.v2.CastChannel.AuthError> parser = PARSER;
+          if (parser == null) {
+            synchronized (su.litvak.chromecast.api.v2.CastChannel.AuthError.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<su.litvak.chromecast.api.v2.CastChannel.AuthError>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
             }
-        }
-        public static com.google.protobuf.Parser<AuthError> PARSER =
-                new com.google.protobuf.AbstractParser<AuthError>() {
-                    public AuthError parsePartialFrom(
-                            com.google.protobuf.CodedInputStream input,
-                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                            throws com.google.protobuf.InvalidProtocolBufferException {
-                        return new AuthError(input, extensionRegistry);
-                    }
-                };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<AuthError> getParserForType() {
-            return PARSER;
-        }
-
-        /**
-         * Protobuf enum {@code su.litvak.chromecast.api.v2.AuthError.ErrorType}
-         */
-        public enum ErrorType
-                implements com.google.protobuf.Internal.EnumLite {
-            /**
-             * <code>INTERNAL_ERROR = 0;</code>
-             */
-            INTERNAL_ERROR(0, 0),
-            /**
-             * <code>NO_TLS = 1;</code>
-             *
-             * <pre>
-             * The underlying connection is not TLS
-             * </pre>
-             */
-            NO_TLS(1, 1),
-            /**
-             * <code>SIGNATURE_ALGORITHM_UNAVAILABLE = 2;</code>
-             */
-            SIGNATURE_ALGORITHM_UNAVAILABLE(2, 2),
-            ;
-
-            /**
-             * <code>INTERNAL_ERROR = 0;</code>
-             */
-            public static final int INTERNAL_ERROR_VALUE = 0;
-            /**
-             * <code>NO_TLS = 1;</code>
-             *
-             * <pre>
-             * The underlying connection is not TLS
-             * </pre>
-             */
-            public static final int NO_TLS_VALUE = 1;
-            /**
-             * <code>SIGNATURE_ALGORITHM_UNAVAILABLE = 2;</code>
-             */
-            public static final int SIGNATURE_ALGORITHM_UNAVAILABLE_VALUE = 2;
-
-
-            public final int getNumber() { return value; }
-
-            public static ErrorType valueOf(int value) {
-                switch (value) {
-                    case 0: return INTERNAL_ERROR;
-                    case 1: return NO_TLS;
-                    case 2: return SIGNATURE_ALGORITHM_UNAVAILABLE;
-                    default: return null;
-                }
-            }
-
-            public static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
-            internalGetValueMap() {
-                return internalValueMap;
-            }
-            private static com.google.protobuf.Internal.EnumLiteMap<ErrorType>
-                    internalValueMap =
-                    new com.google.protobuf.Internal.EnumLiteMap<ErrorType>() {
-                        public ErrorType findValueByNumber(int number) {
-                            return ErrorType.valueOf(number);
-                        }
-                    };
-
-            private final int value;
-
-            private ErrorType(int index, int value) {
-                this.value = value;
-            }
-
-            // @@protoc_insertion_point(enum_scope:su.litvak.chromecast.api.v2.AuthError.ErrorType)
-        }
-
-        private int bitField0_;
-        public static final int ERROR_TYPE_FIELD_NUMBER = 1;
-        private su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType errorType_;
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-         */
-        public boolean hasErrorType() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
-        }
-        /**
-         * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType() {
-            return errorType_;
-        }
-
-        private void initFields() {
-            errorType_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            if (!hasErrorType()) {
-                memoizedIsInitialized = 0;
-                return false;
-            }
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeEnum(1, errorType_.getNumber());
-            }
-            output.writeRawBytes(unknownFields);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeEnumSize(1, errorType_.getNumber());
-            }
-            size += unknownFields.size();
-            memoizedSerializedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
-        }
-
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.AuthError parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthError prototype) {
-            return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        /**
-         * Protobuf type {@code su.litvak.chromecast.api.v2.AuthError}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageLite.Builder<
-                        su.litvak.chromecast.api.v2.CastChannel.AuthError, Builder>
-                implements
-                // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.AuthError)
-                su.litvak.chromecast.api.v2.CastChannel.AuthErrorOrBuilder {
-            // Construct using su.litvak.chromecast.api.v2.CastChannel.AuthError.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-            }
-            private static Builder create() {
-                return new Builder();
-            }
-
-            public Builder clear() {
-                super.clear();
-                errorType_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
-                bitField0_ = (bitField0_ & ~0x00000001);
-                return this;
-            }
-
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthError getDefaultInstanceForType() {
-                return su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance();
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthError build() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthError result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.AuthError buildPartial() {
-                su.litvak.chromecast.api.v2.CastChannel.AuthError result = new su.litvak.chromecast.api.v2.CastChannel.AuthError(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.errorType_ = errorType_;
-                result.bitField0_ = to_bitField0_;
-                return result;
-            }
-
-            public Builder mergeFrom(su.litvak.chromecast.api.v2.CastChannel.AuthError other) {
-                if (other == su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance()) return this;
-                if (other.hasErrorType()) {
-                    setErrorType(other.getErrorType());
-                }
-                setUnknownFields(
-                        getUnknownFields().concat(other.unknownFields));
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                if (!hasErrorType()) {
-
-                    return false;
-                }
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                su.litvak.chromecast.api.v2.CastChannel.AuthError parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (su.litvak.chromecast.api.v2.CastChannel.AuthError) e.getUnfinishedMessage();
-                    throw e;
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType errorType_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-             */
-            public boolean hasErrorType() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType getErrorType() {
-                return errorType_;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-             */
-            public Builder setErrorType(su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                bitField0_ |= 0x00000001;
-                errorType_ = value;
-
-                return this;
-            }
-            /**
-             * <code>required .su.litvak.chromecast.api.v2.AuthError.ErrorType error_type = 1;</code>
-             */
-            public Builder clearErrorType() {
-                bitField0_ = (bitField0_ & ~0x00000001);
-                errorType_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.INTERNAL_ERROR;
-
-                return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.AuthError)
-        }
-
-        static {
-            defaultInstance = new AuthError(true);
-            defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthError)
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return memoizedIsInitialized;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        memoizedIsInitialized = (byte) (arg0 == null ? 0 : 1);
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
     }
 
-    public interface DeviceAuthMessageOrBuilder extends
-            // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.DeviceAuthMessage)
-            com.google.protobuf.MessageLiteOrBuilder {
 
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-         *
-         * <pre>
-         * Request fields
-         * </pre>
-         */
-        boolean hasChallenge();
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-         *
-         * <pre>
-         * Request fields
-         * </pre>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge();
-
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-         *
-         * <pre>
-         * Response fields
-         * </pre>
-         */
-        boolean hasResponse();
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-         *
-         * <pre>
-         * Response fields
-         * </pre>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse();
-
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-         */
-        boolean hasError();
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-         */
-        su.litvak.chromecast.api.v2.CastChannel.AuthError getError();
+    // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.AuthError)
+    private static final su.litvak.chromecast.api.v2.CastChannel.AuthError DEFAULT_INSTANCE;
+    static {
+      AuthError defaultInstance = new AuthError();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        AuthError.class, defaultInstance);
     }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.AuthError getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<AuthError> PARSER;
+
+    public static com.google.protobuf.Parser<AuthError> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+  public interface DeviceAuthMessageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+      com.google.protobuf.MessageLiteOrBuilder {
+
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     * @return Whether the challenge field is set.
+     */
+    boolean hasChallenge();
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     * @return The challenge.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge();
+
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     * @return Whether the response field is set.
+     */
+    boolean hasResponse();
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     * @return The response.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse();
+
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     * @return Whether the error field is set.
+     */
+    boolean hasError();
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     * @return The error.
+     */
+    su.litvak.chromecast.api.v2.CastChannel.AuthError getError();
+  }
+  /**
+   * Protobuf type {@code su.litvak.chromecast.api.v2.DeviceAuthMessage}
+   */
+  public  static final class DeviceAuthMessage extends
+      com.google.protobuf.GeneratedMessageLite<
+          DeviceAuthMessage, DeviceAuthMessage.Builder> implements
+      // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+      DeviceAuthMessageOrBuilder {
+    private DeviceAuthMessage() {
+    }
+    private int bitField0_;
+    public static final int CHALLENGE_FIELD_NUMBER = 1;
+    private su.litvak.chromecast.api.v2.CastChannel.AuthChallenge challenge_;
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     */
+    @java.lang.Override
+    public boolean hasChallenge() {
+      return ((bitField0_ & 0x00000001) != 0);
+    }
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge() {
+      return challenge_ == null ? su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance() : challenge_;
+    }
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     */
+    private void setChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
+      value.getClass();
+  challenge_ = value;
+      bitField0_ |= 0x00000001;
+      }
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
+      value.getClass();
+  if (challenge_ != null &&
+          challenge_ != su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance()) {
+        challenge_ =
+          su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.newBuilder(challenge_).mergeFrom(value).buildPartial();
+      } else {
+        challenge_ = value;
+      }
+      bitField0_ |= 0x00000001;
+    }
+    /**
+     * <pre>
+     * Request fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+     */
+    private void clearChallenge() {  challenge_ = null;
+      bitField0_ = (bitField0_ & ~0x00000001);
+    }
+
+    public static final int RESPONSE_FIELD_NUMBER = 2;
+    private su.litvak.chromecast.api.v2.CastChannel.AuthResponse response_;
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     */
+    @java.lang.Override
+    public boolean hasResponse() {
+      return ((bitField0_ & 0x00000002) != 0);
+    }
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse() {
+      return response_ == null ? su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance() : response_;
+    }
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     */
+    private void setResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
+      value.getClass();
+  response_ = value;
+      bitField0_ |= 0x00000002;
+      }
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
+      value.getClass();
+  if (response_ != null &&
+          response_ != su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance()) {
+        response_ =
+          su.litvak.chromecast.api.v2.CastChannel.AuthResponse.newBuilder(response_).mergeFrom(value).buildPartial();
+      } else {
+        response_ = value;
+      }
+      bitField0_ |= 0x00000002;
+    }
+    /**
+     * <pre>
+     * Response fields
+     * </pre>
+     *
+     * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+     */
+    private void clearResponse() {  response_ = null;
+      bitField0_ = (bitField0_ & ~0x00000002);
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 3;
+    private su.litvak.chromecast.api.v2.CastChannel.AuthError error_;
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     */
+    @java.lang.Override
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000004) != 0);
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     */
+    @java.lang.Override
+    public su.litvak.chromecast.api.v2.CastChannel.AuthError getError() {
+      return error_ == null ? su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance() : error_;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     */
+    private void setError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
+      value.getClass();
+  error_ = value;
+      bitField0_ |= 0x00000004;
+      }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     */
+    @java.lang.SuppressWarnings({"ReferenceEquality"})
+    private void mergeError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
+      value.getClass();
+  if (error_ != null &&
+          error_ != su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance()) {
+        error_ =
+          su.litvak.chromecast.api.v2.CastChannel.AuthError.newBuilder(error_).mergeFrom(value).buildPartial();
+      } else {
+        error_ = value;
+      }
+      bitField0_ |= 0x00000004;
+    }
+    /**
+     * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+     */
+    private void clearError() {  error_ = null;
+      bitField0_ = (bitField0_ & ~0x00000004);
+    }
+
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, data, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return parseDelimitedFrom(DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input);
+    }
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageLite.parseFrom(
+          DEFAULT_INSTANCE, input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() {
+      return (Builder) DEFAULT_INSTANCE.createBuilder();
+    }
+    public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage prototype) {
+      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+    }
+
     /**
      * Protobuf type {@code su.litvak.chromecast.api.v2.DeviceAuthMessage}
      */
-    public static final class DeviceAuthMessage extends
-            com.google.protobuf.GeneratedMessageLite implements
-            // @@protoc_insertion_point(message_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
-            DeviceAuthMessageOrBuilder {
-        // Use DeviceAuthMessage.newBuilder() to construct.
-        private DeviceAuthMessage(com.google.protobuf.GeneratedMessageLite.Builder builder) {
-            super(builder);
-            this.unknownFields = builder.getUnknownFields();
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageLite.Builder<
+          su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage, Builder> implements
+        // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+        su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessageOrBuilder {
+      // Construct using su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage.newBuilder()
+      private Builder() {
+        super(DEFAULT_INSTANCE);
+      }
+
+
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      @java.lang.Override
+      public boolean hasChallenge() {
+        return instance.hasChallenge();
+      }
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge() {
+        return instance.getChallenge();
+      }
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      public Builder setChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
+        copyOnWrite();
+        instance.setChallenge(value);
+        return this;
         }
-        private DeviceAuthMessage(boolean noInit) { this.unknownFields = com.google.protobuf.ByteString.EMPTY;}
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      public Builder setChallenge(
+          su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.Builder builderForValue) {
+        copyOnWrite();
+        instance.setChallenge(builderForValue.build());
+        return this;
+      }
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      public Builder mergeChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
+        copyOnWrite();
+        instance.mergeChallenge(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Request fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
+       */
+      public Builder clearChallenge() {  copyOnWrite();
+        instance.clearChallenge();
+        return this;
+      }
 
-        private static final DeviceAuthMessage defaultInstance;
-        public static DeviceAuthMessage getDefaultInstance() {
-            return defaultInstance;
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      @java.lang.Override
+      public boolean hasResponse() {
+        return instance.hasResponse();
+      }
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse() {
+        return instance.getResponse();
+      }
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      public Builder setResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
+        copyOnWrite();
+        instance.setResponse(value);
+        return this;
         }
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      public Builder setResponse(
+          su.litvak.chromecast.api.v2.CastChannel.AuthResponse.Builder builderForValue) {
+        copyOnWrite();
+        instance.setResponse(builderForValue.build());
+        return this;
+      }
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      public Builder mergeResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
+        copyOnWrite();
+        instance.mergeResponse(value);
+        return this;
+      }
+      /**
+       * <pre>
+       * Response fields
+       * </pre>
+       *
+       * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
+       */
+      public Builder clearResponse() {  copyOnWrite();
+        instance.clearResponse();
+        return this;
+      }
 
-        public DeviceAuthMessage getDefaultInstanceForType() {
-            return defaultInstance;
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      @java.lang.Override
+      public boolean hasError() {
+        return instance.hasError();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      @java.lang.Override
+      public su.litvak.chromecast.api.v2.CastChannel.AuthError getError() {
+        return instance.getError();
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      public Builder setError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
+        copyOnWrite();
+        instance.setError(value);
+        return this;
         }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      public Builder setError(
+          su.litvak.chromecast.api.v2.CastChannel.AuthError.Builder builderForValue) {
+        copyOnWrite();
+        instance.setError(builderForValue.build());
+        return this;
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      public Builder mergeError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
+        copyOnWrite();
+        instance.mergeError(value);
+        return this;
+      }
+      /**
+       * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
+       */
+      public Builder clearError() {  copyOnWrite();
+        instance.clearError();
+        return this;
+      }
 
-        private final com.google.protobuf.ByteString unknownFields;
-        private DeviceAuthMessage(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            initFields();
-            int mutable_bitField0_ = 0;
-            com.google.protobuf.ByteString.Output unknownFieldsOutput =
-                    com.google.protobuf.ByteString.newOutput();
-            com.google.protobuf.CodedOutputStream unknownFieldsCodedOutput =
-                    com.google.protobuf.CodedOutputStream.newInstance(
-                            unknownFieldsOutput);
-            try {
-                boolean done = false;
-                while (!done) {
-                    int tag = input.readTag();
-                    switch (tag) {
-                        case 0:
-                            done = true;
-                            break;
-                        default: {
-                            if (!parseUnknownField(input, unknownFieldsCodedOutput,
-                                    extensionRegistry, tag)) {
-                                done = true;
-                            }
-                            break;
-                        }
-                        case 10: {
-                            su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                                subBuilder = challenge_.toBuilder();
-                            }
-                            challenge_ = input.readMessage(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.PARSER, extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(challenge_);
-                                challenge_ = subBuilder.buildPartial();
-                            }
-                            bitField0_ |= 0x00000001;
-                            break;
-                        }
-                        case 18: {
-                            su.litvak.chromecast.api.v2.CastChannel.AuthResponse.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                                subBuilder = response_.toBuilder();
-                            }
-                            response_ = input.readMessage(su.litvak.chromecast.api.v2.CastChannel.AuthResponse.PARSER, extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(response_);
-                                response_ = subBuilder.buildPartial();
-                            }
-                            bitField0_ |= 0x00000002;
-                            break;
-                        }
-                        case 26: {
-                            su.litvak.chromecast.api.v2.CastChannel.AuthError.Builder subBuilder = null;
-                            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                                subBuilder = error_.toBuilder();
-                            }
-                            error_ = input.readMessage(su.litvak.chromecast.api.v2.CastChannel.AuthError.PARSER, extensionRegistry);
-                            if (subBuilder != null) {
-                                subBuilder.mergeFrom(error_);
-                                error_ = subBuilder.buildPartial();
-                            }
-                            bitField0_ |= 0x00000004;
-                            break;
-                        }
-                    }
-                }
-            } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                throw e.setUnfinishedMessage(this);
-            } catch (java.io.IOException e) {
-                throw new com.google.protobuf.InvalidProtocolBufferException(
-                        e.getMessage()).setUnfinishedMessage(this);
-            } finally {
-                try {
-                    unknownFieldsCodedOutput.flush();
-                } catch (java.io.IOException e) {
-                    // Should not happen
-                } finally {
-                    unknownFields = unknownFieldsOutput.toByteString();
-                }
-                makeExtensionsImmutable();
-            }
+      // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+    }
+    private byte memoizedIsInitialized = 2;
+    @java.lang.Override
+    @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
+    protected final java.lang.Object dynamicMethod(
+        com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
+        java.lang.Object arg0, java.lang.Object arg1) {
+      switch (method) {
+        case NEW_MUTABLE_INSTANCE: {
+          return new su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage();
         }
-        public static com.google.protobuf.Parser<DeviceAuthMessage> PARSER =
-                new com.google.protobuf.AbstractParser<DeviceAuthMessage>() {
-                    public DeviceAuthMessage parsePartialFrom(
-                            com.google.protobuf.CodedInputStream input,
-                            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                            throws com.google.protobuf.InvalidProtocolBufferException {
-                        return new DeviceAuthMessage(input, extensionRegistry);
-                    }
-                };
-
-        @java.lang.Override
-        public com.google.protobuf.Parser<DeviceAuthMessage> getParserForType() {
-            return PARSER;
+        case NEW_BUILDER: {
+          return new Builder();
         }
-
-        private int bitField0_;
-        public static final int CHALLENGE_FIELD_NUMBER = 1;
-        private su.litvak.chromecast.api.v2.CastChannel.AuthChallenge challenge_;
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-         *
-         * <pre>
-         * Request fields
-         * </pre>
-         */
-        public boolean hasChallenge() {
-            return ((bitField0_ & 0x00000001) == 0x00000001);
+        case BUILD_MESSAGE_INFO: {
+            java.lang.Object[] objects = new java.lang.Object[] {
+              "bitField0_",
+              "challenge_",
+              "response_",
+              "error_",
+            };
+            java.lang.String info =
+                "\u0001\u0003\u0000\u0001\u0001\u0003\u0003\u0000\u0000\u0002\u0001\t\u0000\u0002" +
+                "\u0409\u0001\u0003\u0409\u0002";
+            return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-         *
-         * <pre>
-         * Request fields
-         * </pre>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge() {
-            return challenge_;
+        // fall through
+        case GET_DEFAULT_INSTANCE: {
+          return DEFAULT_INSTANCE;
         }
-
-        public static final int RESPONSE_FIELD_NUMBER = 2;
-        private su.litvak.chromecast.api.v2.CastChannel.AuthResponse response_;
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-         *
-         * <pre>
-         * Response fields
-         * </pre>
-         */
-        public boolean hasResponse() {
-            return ((bitField0_ & 0x00000002) == 0x00000002);
-        }
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-         *
-         * <pre>
-         * Response fields
-         * </pre>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse() {
-            return response_;
-        }
-
-        public static final int ERROR_FIELD_NUMBER = 3;
-        private su.litvak.chromecast.api.v2.CastChannel.AuthError error_;
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-         */
-        public boolean hasError() {
-            return ((bitField0_ & 0x00000004) == 0x00000004);
-        }
-        /**
-         * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-         */
-        public su.litvak.chromecast.api.v2.CastChannel.AuthError getError() {
-            return error_;
-        }
-
-        private void initFields() {
-            challenge_ = su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance();
-            response_ = su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance();
-            error_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance();
-        }
-        private byte memoizedIsInitialized = -1;
-        public final boolean isInitialized() {
-            byte isInitialized = memoizedIsInitialized;
-            if (isInitialized == 1) return true;
-            if (isInitialized == 0) return false;
-
-            if (hasResponse()) {
-                if (!getResponse().isInitialized()) {
-                    memoizedIsInitialized = 0;
-                    return false;
-                }
+        case GET_PARSER: {
+          com.google.protobuf.Parser<su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage> parser = PARSER;
+          if (parser == null) {
+            synchronized (su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage.class) {
+              parser = PARSER;
+              if (parser == null) {
+                parser =
+                    new DefaultInstanceBasedParser<su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage>(
+                        DEFAULT_INSTANCE);
+                PARSER = parser;
+              }
             }
-            if (hasError()) {
-                if (!getError().isInitialized()) {
-                    memoizedIsInitialized = 0;
-                    return false;
-                }
-            }
-            memoizedIsInitialized = 1;
-            return true;
-        }
-
-        public void writeTo(com.google.protobuf.CodedOutputStream output)
-                throws java.io.IOException {
-            getSerializedSize();
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                output.writeMessage(1, challenge_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                output.writeMessage(2, response_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                output.writeMessage(3, error_);
-            }
-            output.writeRawBytes(unknownFields);
-        }
-
-        private int memoizedSerializedSize = -1;
-        public int getSerializedSize() {
-            int size = memoizedSerializedSize;
-            if (size != -1) return size;
-
-            size = 0;
-            if (((bitField0_ & 0x00000001) == 0x00000001)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(1, challenge_);
-            }
-            if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(2, response_);
-            }
-            if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                size += com.google.protobuf.CodedOutputStream
-                        .computeMessageSize(3, error_);
-            }
-            size += unknownFields.size();
-            memoizedSerializedSize = size;
-            return size;
-        }
-
-        private static final long serialVersionUID = 0L;
-        @java.lang.Override
-        protected java.lang.Object writeReplace()
-                throws java.io.ObjectStreamException {
-            return super.writeReplace();
-        }
-
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.ByteString data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.ByteString data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(byte[] data)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                byte[] data,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws com.google.protobuf.InvalidProtocolBufferException {
-            return PARSER.parseFrom(data, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseDelimitedFrom(java.io.InputStream input)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseDelimitedFrom(
-                java.io.InputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseDelimitedFrom(input, extensionRegistry);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.CodedInputStream input)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input);
-        }
-        public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parseFrom(
-                com.google.protobuf.CodedInputStream input,
-                com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                throws java.io.IOException {
-            return PARSER.parseFrom(input, extensionRegistry);
-        }
-
-        public static Builder newBuilder() { return Builder.create(); }
-        public Builder newBuilderForType() { return newBuilder(); }
-        public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage prototype) {
-            return newBuilder().mergeFrom(prototype);
-        }
-        public Builder toBuilder() { return newBuilder(this); }
-
-        /**
-         * Protobuf type {@code su.litvak.chromecast.api.v2.DeviceAuthMessage}
-         */
-        public static final class Builder extends
-                com.google.protobuf.GeneratedMessageLite.Builder<
-                        su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage, Builder>
-                implements
-                // @@protoc_insertion_point(builder_implements:su.litvak.chromecast.api.v2.DeviceAuthMessage)
-                su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessageOrBuilder {
-            // Construct using su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage.newBuilder()
-            private Builder() {
-                maybeForceBuilderInitialization();
-            }
-
-            private void maybeForceBuilderInitialization() {
-            }
-            private static Builder create() {
-                return new Builder();
-            }
-
-            public Builder clear() {
-                super.clear();
-                challenge_ = su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000001);
-                response_ = su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000002);
-                error_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance();
-                bitField0_ = (bitField0_ & ~0x00000004);
-                return this;
-            }
-
-            public Builder clone() {
-                return create().mergeFrom(buildPartial());
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage getDefaultInstanceForType() {
-                return su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage.getDefaultInstance();
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage build() {
-                su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage result = buildPartial();
-                if (!result.isInitialized()) {
-                    throw newUninitializedMessageException(result);
-                }
-                return result;
-            }
-
-            public su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage buildPartial() {
-                su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage result = new su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage(this);
-                int from_bitField0_ = bitField0_;
-                int to_bitField0_ = 0;
-                if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
-                    to_bitField0_ |= 0x00000001;
-                }
-                result.challenge_ = challenge_;
-                if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
-                    to_bitField0_ |= 0x00000002;
-                }
-                result.response_ = response_;
-                if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
-                    to_bitField0_ |= 0x00000004;
-                }
-                result.error_ = error_;
-                result.bitField0_ = to_bitField0_;
-                return result;
-            }
-
-            public Builder mergeFrom(su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage other) {
-                if (other == su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage.getDefaultInstance()) return this;
-                if (other.hasChallenge()) {
-                    mergeChallenge(other.getChallenge());
-                }
-                if (other.hasResponse()) {
-                    mergeResponse(other.getResponse());
-                }
-                if (other.hasError()) {
-                    mergeError(other.getError());
-                }
-                setUnknownFields(
-                        getUnknownFields().concat(other.unknownFields));
-                return this;
-            }
-
-            public final boolean isInitialized() {
-                if (hasResponse()) {
-                    if (!getResponse().isInitialized()) {
-
-                        return false;
-                    }
-                }
-                if (hasError()) {
-                    if (!getError().isInitialized()) {
-
-                        return false;
-                    }
-                }
-                return true;
-            }
-
-            public Builder mergeFrom(
-                    com.google.protobuf.CodedInputStream input,
-                    com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-                    throws java.io.IOException {
-                su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage parsedMessage = null;
-                try {
-                    parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-                } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-                    parsedMessage = (su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage) e.getUnfinishedMessage();
-                    throw e;
-                } finally {
-                    if (parsedMessage != null) {
-                        mergeFrom(parsedMessage);
-                    }
-                }
-                return this;
-            }
-            private int bitField0_;
-
-            private su.litvak.chromecast.api.v2.CastChannel.AuthChallenge challenge_ = su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance();
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public boolean hasChallenge() {
-                return ((bitField0_ & 0x00000001) == 0x00000001);
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.AuthChallenge getChallenge() {
-                return challenge_;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public Builder setChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                challenge_ = value;
-
-                bitField0_ |= 0x00000001;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public Builder setChallenge(
-                    su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.Builder builderForValue) {
-                challenge_ = builderForValue.build();
-
-                bitField0_ |= 0x00000001;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public Builder mergeChallenge(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge value) {
-                if (((bitField0_ & 0x00000001) == 0x00000001) &&
-                        challenge_ != su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance()) {
-                    challenge_ =
-                            su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.newBuilder(challenge_).mergeFrom(value).buildPartial();
-                } else {
-                    challenge_ = value;
-                }
-
-                bitField0_ |= 0x00000001;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthChallenge challenge = 1;</code>
-             *
-             * <pre>
-             * Request fields
-             * </pre>
-             */
-            public Builder clearChallenge() {
-                challenge_ = su.litvak.chromecast.api.v2.CastChannel.AuthChallenge.getDefaultInstance();
-
-                bitField0_ = (bitField0_ & ~0x00000001);
-                return this;
-            }
-
-            private su.litvak.chromecast.api.v2.CastChannel.AuthResponse response_ = su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance();
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public boolean hasResponse() {
-                return ((bitField0_ & 0x00000002) == 0x00000002);
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.AuthResponse getResponse() {
-                return response_;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public Builder setResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                response_ = value;
-
-                bitField0_ |= 0x00000002;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public Builder setResponse(
-                    su.litvak.chromecast.api.v2.CastChannel.AuthResponse.Builder builderForValue) {
-                response_ = builderForValue.build();
-
-                bitField0_ |= 0x00000002;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public Builder mergeResponse(su.litvak.chromecast.api.v2.CastChannel.AuthResponse value) {
-                if (((bitField0_ & 0x00000002) == 0x00000002) &&
-                        response_ != su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance()) {
-                    response_ =
-                            su.litvak.chromecast.api.v2.CastChannel.AuthResponse.newBuilder(response_).mergeFrom(value).buildPartial();
-                } else {
-                    response_ = value;
-                }
-
-                bitField0_ |= 0x00000002;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthResponse response = 2;</code>
-             *
-             * <pre>
-             * Response fields
-             * </pre>
-             */
-            public Builder clearResponse() {
-                response_ = su.litvak.chromecast.api.v2.CastChannel.AuthResponse.getDefaultInstance();
-
-                bitField0_ = (bitField0_ & ~0x00000002);
-                return this;
-            }
-
-            private su.litvak.chromecast.api.v2.CastChannel.AuthError error_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance();
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public boolean hasError() {
-                return ((bitField0_ & 0x00000004) == 0x00000004);
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public su.litvak.chromecast.api.v2.CastChannel.AuthError getError() {
-                return error_;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public Builder setError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
-                if (value == null) {
-                    throw new NullPointerException();
-                }
-                error_ = value;
-
-                bitField0_ |= 0x00000004;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public Builder setError(
-                    su.litvak.chromecast.api.v2.CastChannel.AuthError.Builder builderForValue) {
-                error_ = builderForValue.build();
-
-                bitField0_ |= 0x00000004;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public Builder mergeError(su.litvak.chromecast.api.v2.CastChannel.AuthError value) {
-                if (((bitField0_ & 0x00000004) == 0x00000004) &&
-                        error_ != su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance()) {
-                    error_ =
-                            su.litvak.chromecast.api.v2.CastChannel.AuthError.newBuilder(error_).mergeFrom(value).buildPartial();
-                } else {
-                    error_ = value;
-                }
-
-                bitField0_ |= 0x00000004;
-                return this;
-            }
-            /**
-             * <code>optional .su.litvak.chromecast.api.v2.AuthError error = 3;</code>
-             */
-            public Builder clearError() {
-                error_ = su.litvak.chromecast.api.v2.CastChannel.AuthError.getDefaultInstance();
-
-                bitField0_ = (bitField0_ & ~0x00000004);
-                return this;
-            }
-
-            // @@protoc_insertion_point(builder_scope:su.litvak.chromecast.api.v2.DeviceAuthMessage)
-        }
-
-        static {
-            defaultInstance = new DeviceAuthMessage(true);
-            defaultInstance.initFields();
-        }
-
-        // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+          }
+          return parser;
+      }
+      case GET_MEMOIZED_IS_INITIALIZED: {
+        return memoizedIsInitialized;
+      }
+      case SET_MEMOIZED_IS_INITIALIZED: {
+        memoizedIsInitialized = (byte) (arg0 == null ? 0 : 1);
+        return null;
+      }
+      }
+      throw new UnsupportedOperationException();
     }
 
 
+    // @@protoc_insertion_point(class_scope:su.litvak.chromecast.api.v2.DeviceAuthMessage)
+    private static final su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage DEFAULT_INSTANCE;
     static {
+      DeviceAuthMessage defaultInstance = new DeviceAuthMessage();
+      // New instances are implicitly immutable so no need to make
+      // immutable.
+      DEFAULT_INSTANCE = defaultInstance;
+      com.google.protobuf.GeneratedMessageLite.registerDefaultInstance(
+        DeviceAuthMessage.class, defaultInstance);
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    public static su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static volatile com.google.protobuf.Parser<DeviceAuthMessage> PARSER;
+
+    public static com.google.protobuf.Parser<DeviceAuthMessage> parser() {
+      return DEFAULT_INSTANCE.getParserForType();
+    }
+  }
+
+
+  static {
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }
