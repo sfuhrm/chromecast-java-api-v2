@@ -1546,9 +1546,9 @@ public final class CastChannel {
               "payloadBinary_",
             };
             java.lang.String info =
-                "\u0001\u0007\u0000\u0001\u0001\u0007\u0007\u0000\u0000\u0005\u0001\u050c\u0000\u0002" +
-                "\u0508\u0001\u0003\u0508\u0002\u0004\u0508\u0003\u0005\u050c\u0004\u0006\b\u0005" +
-                "\u0007\n\u0006";
+                "\u0001\u0007\u0000\u0001\u0001\u0007\u0007\u0000\u0000\u0005\u0001\u150c\u0000\u0002" +
+                "\u1508\u0001\u0003\u1508\u0002\u0004\u1508\u0003\u0005\u150c\u0004\u0006\u1008\u0005" +
+                "\u0007\u100a\u0006";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -1826,7 +1826,7 @@ public final class CastChannel {
               su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.internalGetVerifier(),
             };
             java.lang.String info =
-                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0001\f\u0000";
+                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0000\u0001\u100c\u0000";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2049,9 +2049,10 @@ public final class CastChannel {
       return intermediateCertificate_.get(index);
     }
     private void ensureIntermediateCertificateIsMutable() {
-      if (!intermediateCertificate_.isModifiable()) {
+      com.google.protobuf.Internal.ProtobufList<com.google.protobuf.ByteString> tmp = intermediateCertificate_;
+      if (!tmp.isModifiable()) {
         intermediateCertificate_ =
-            com.google.protobuf.GeneratedMessageLite.mutableCopy(intermediateCertificate_);
+            com.google.protobuf.GeneratedMessageLite.mutableCopy(tmp);
        }
     }
     /**
@@ -2423,8 +2424,8 @@ public final class CastChannel {
               su.litvak.chromecast.api.v2.CastChannel.SignatureAlgorithm.internalGetVerifier(),
             };
             java.lang.String info =
-                "\u0001\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0001\u0002\u0001\u050a\u0000\u0002" +
-                "\u050a\u0001\u0003\u001c\u0004\f\u0002";
+                "\u0001\u0004\u0000\u0001\u0001\u0004\u0004\u0000\u0001\u0002\u0001\u150a\u0000\u0002" +
+                "\u150a\u0001\u0003\u001c\u0004\u100c\u0002";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -2795,7 +2796,7 @@ public final class CastChannel {
               su.litvak.chromecast.api.v2.CastChannel.AuthError.ErrorType.internalGetVerifier(),
             };
             java.lang.String info =
-                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0001\u0001\u050c\u0000";
+                "\u0001\u0001\u0000\u0001\u0001\u0001\u0001\u0000\u0000\u0001\u0001\u150c\u0000";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
@@ -3400,8 +3401,8 @@ public final class CastChannel {
               "error_",
             };
             java.lang.String info =
-                "\u0001\u0003\u0000\u0001\u0001\u0003\u0003\u0000\u0000\u0002\u0001\t\u0000\u0002" +
-                "\u0409\u0001\u0003\u0409\u0002";
+                "\u0001\u0003\u0000\u0001\u0001\u0003\u0003\u0000\u0000\u0002\u0001\u1009\u0000\u0002" +
+                "\u1409\u0001\u0003\u1409\u0002";
             return newMessageInfo(DEFAULT_INSTANCE, info, objects);
         }
         // fall through
