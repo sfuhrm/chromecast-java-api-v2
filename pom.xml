@@ -7,8 +7,8 @@
     <packaging>jar</packaging>
 
     <name>ChromeCast Java API v2</name>
-    <description>Java implementation of ChromeCast V2 protocol client</description>
-    <url>https://github.com/vitalidze/chromecast-java-api-v2</url>
+    <description>Java implementation of ChromeCast V2 protocol client, based on ttps://github.com/vitalidze/chromecast-java-api-v2</description>
+    <url>https://github.com/sfuhrm/chromecast-java-api-v2</url>
 
     <licenses>
         <license>
@@ -19,8 +19,8 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/vitalidze/chromecast-java-api-v2</url>
-        <connection>scm:git:https://github.com/vitalidze/chromecast-java-api-v2.git</connection>
+        <url>https://github.com/sfuhrm/chromecast-java-api-v2</url>
+        <connection>scm:git:https://github.com/sfuhrm/chromecast-java-api-v2.git</connection>
         <tag>HEAD</tag>
     </scm>
 
@@ -36,7 +36,7 @@
         <dependency>
             <groupId>org.jmdns</groupId>
             <artifactId>jmdns</artifactId>
-            <version>[3.5.1,3.5.5]</version>
+            <version>3.5.5</version>
         </dependency>
 
         <dependency>
@@ -77,39 +77,6 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
-    <profiles>
-        <profile>
-            <id>release-sign-artifacts</id>
-            <activation>
-                <property>
-                    <name>performRelease</name>
-                    <value>true</value>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-gpg-plugin</artifactId>
-                        <version>3.1.0</version>
-                        <configuration>
-                            <passphrase>${gpg.passphrase}</passphrase>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <id>sign-artifacts</id>
-                                <phase>verify</phase>
-                                <goals>
-                                    <goal>sign</goal>
-                                </goals>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
     <build>
         <pluginManagement>
@@ -163,11 +130,41 @@
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <excludePackageNames>de.sfuhrm.foo</excludePackageNames>
+                    <failOnError>false</failOnError>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
-                <version>2.5</version>
+                <version>3.0.0-M1</version>
                 <configuration>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <arguments>-Dgpg.passphrase=${gpg.passphrase}</arguments>
+                    <releaseProfiles>release</releaseProfiles>
                 </configuration>
             </plugin>
             <plugin>
@@ -236,5 +233,53 @@
             <name>Vitaly Litvak</name>
             <email>vitavaque@gmail.com</email>
         </developer>
+        <developer>
+            <id>sfuhrm</id>
+            <name>Stephan Fuhrmann</name>
+        </developer>
     </developers>
+
+    <profiles>
+        <profile>
+            <id>release</id>
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+            </distributionManagement>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.sonatype.plugins</groupId>
+                        <artifactId>nexus-staging-maven-plugin</artifactId>
+                        <version>1.6.13</version>
+                        <extensions>true</extensions>
+                        <configuration>
+                            <serverId>ossrh</serverId>
+                            <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                            <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                        </configuration>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>3.1.0</version>
+                        <configuration>
+                            <keyname>0AC5A45E91FA93DA25380017B0D87B063EAD41F1</keyname>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
