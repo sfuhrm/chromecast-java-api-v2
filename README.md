@@ -205,7 +205,7 @@ This is it for now. It covers all my needs, but if someone is interested in more
 Useful links
 ------------
 
-* [Original implementation]([https://github.com/wearefractal/nodecast](https://github.com/vitalidze/chromecast-java-api-v2))
+* [Original implementation](https://github.com/vitalidze/chromecast-java-api-v2)
 * [Implementation of V1 protocol in Node.js](https://github.com/wearefractal/nodecast)
 * [Console application implementing V1 protocol in java](https://github.com/entertailion/Caster)
 * [GUI application in java using V1 protocol to send media from local machine to ChromeCast](https://github.com/entertailion/Fling)
