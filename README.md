@@ -44,12 +44,16 @@ To build library from sources:
 
 1) Clone github repo
 
+```bash
     $ git clone https://github.com/sfuhrm/chromecast-java-api-v2.git
+```
 
 2) Change to the cloned repo folder and run `mvn install`
 
+```bash
     $ cd chromecast-java-api-v2
     $ mvn install
+```
 
 3) Then it could be included into project's `pom.xml` from local repository:
 
