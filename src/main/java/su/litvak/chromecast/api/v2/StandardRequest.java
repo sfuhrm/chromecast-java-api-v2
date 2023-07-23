@@ -101,7 +101,7 @@ abstract class StandardRequest extends StandardMessage implements Request {
             this.customData = customData == null ? null : new Object() {
                 @JsonProperty
                 final
-                Map<String, String> payload = customData;
+                    Map<String, String> payload = customData;
             };
         }
     }

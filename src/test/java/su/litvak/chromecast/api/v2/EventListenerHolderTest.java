@@ -87,7 +87,9 @@ public class EventListenerHolderTest {
             }
             if (responseType == null) {
                 return other.responseType == null;
-            } else return responseType.equals(other.responseType);
+            } else {
+                return responseType.equals(other.responseType);
+            }
         }
     }
 
