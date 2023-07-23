@@ -20,7 +20,7 @@
 
     <scm>
         <url>git@github.com:sfuhrm/chromecast-java-api-v2.git</url>
-        <connection>scm:git:https://github.com/sfuhrm/chromecast-java-api-v2.git</connection>
+        <connection>scm:git:git@github.com:sfuhrm/chromecast-java-api-v2.git</connection>
         <tag>HEAD</tag>
     </scm>
 
