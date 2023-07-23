@@ -21,7 +21,7 @@ import java.util.Random;
  * Utility class for generating random strings of human-readable characters.
  */
 class RandomString {
-    private static char[] symbols;
+    private static final char[] symbols;
 
     static {
         StringBuilder tmp = new StringBuilder();

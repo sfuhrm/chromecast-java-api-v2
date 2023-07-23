@@ -50,7 +50,7 @@ public class Application {
         this.sessionId = sessionId;
         this.statusText = statusText;
         this.transportId = transportId;
-        this.namespaces = namespaces == null ? Collections.<Namespace>emptyList() : namespaces;
+        this.namespaces = namespaces == null ? Collections.emptyList() : namespaces;
         this.isIdleScreen = isIdleScreen;
         this.launchedFromCloud = launchedFromCloud;
     }

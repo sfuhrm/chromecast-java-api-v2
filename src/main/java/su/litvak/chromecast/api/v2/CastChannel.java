@@ -78,23 +78,23 @@ public final class CastChannel {
             }
           };
 
-    public static com.google.protobuf.Internal.EnumVerifier 
+    public static com.google.protobuf.Internal.EnumVerifier
         internalGetVerifier() {
       return SignatureAlgorithmVerifier.INSTANCE;
     }
 
-    private static final class SignatureAlgorithmVerifier implements 
-         com.google.protobuf.Internal.EnumVerifier { 
+    private static final class SignatureAlgorithmVerifier implements
+         com.google.protobuf.Internal.EnumVerifier {
             static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new SignatureAlgorithmVerifier();
             @java.lang.Override
             public boolean isInRange(int number) {
               return SignatureAlgorithm.forNumber(number) != null;
             }
-          };
+          }
 
     private final int value;
 
-    private SignatureAlgorithm(int value) {
+    SignatureAlgorithm(int value) {
       this.value = value;
     }
 
@@ -334,10 +334,10 @@ public final class CastChannel {
       }
 
       public static ProtocolVersion forNumber(int value) {
-        switch (value) {
-          case 0: return CASTV2_1_0;
-          default: return null;
+        if (value == 0) {
+          return CASTV2_1_0;
         }
+        return null;
       }
 
       public static com.google.protobuf.Internal.EnumLiteMap<ProtocolVersion>
@@ -353,23 +353,23 @@ public final class CastChannel {
               }
             };
 
-      public static com.google.protobuf.Internal.EnumVerifier 
+      public static com.google.protobuf.Internal.EnumVerifier
           internalGetVerifier() {
         return ProtocolVersionVerifier.INSTANCE;
       }
 
-      private static final class ProtocolVersionVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
+      private static final class ProtocolVersionVerifier implements
+           com.google.protobuf.Internal.EnumVerifier {
               static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ProtocolVersionVerifier();
               @java.lang.Override
               public boolean isInRange(int number) {
                 return ProtocolVersion.forNumber(number) != null;
               }
-            };
+            }
 
       private final int value;
 
-      private ProtocolVersion(int value) {
+      ProtocolVersion(int value) {
         this.value = value;
       }
 
@@ -441,23 +441,23 @@ public final class CastChannel {
               }
             };
 
-      public static com.google.protobuf.Internal.EnumVerifier 
+      public static com.google.protobuf.Internal.EnumVerifier
           internalGetVerifier() {
         return PayloadTypeVerifier.INSTANCE;
       }
 
-      private static final class PayloadTypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
+      private static final class PayloadTypeVerifier implements
+           com.google.protobuf.Internal.EnumVerifier {
               static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new PayloadTypeVerifier();
               @java.lang.Override
               public boolean isInRange(int number) {
                 return PayloadType.forNumber(number) != null;
               }
-            };
+            }
 
       private final int value;
 
-      private PayloadType(int value) {
+      PayloadType(int value) {
         this.value = value;
       }
 
@@ -1011,10 +1011,10 @@ public final class CastChannel {
     }
 
     public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
+      return DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.CastMessage prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      return DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -1522,7 +1522,7 @@ public final class CastChannel {
     private byte memoizedIsInitialized = 2;
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
+    protected java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
@@ -1745,10 +1745,10 @@ public final class CastChannel {
     }
 
     public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
+      return DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthChallenge prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      return DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -1809,7 +1809,7 @@ public final class CastChannel {
     }
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
+    protected java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
@@ -2202,10 +2202,10 @@ public final class CastChannel {
     }
 
     public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
+      return DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthResponse prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      return DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -2404,7 +2404,7 @@ public final class CastChannel {
     private byte memoizedIsInitialized = 2;
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
+    protected java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
@@ -2584,23 +2584,23 @@ public final class CastChannel {
               }
             };
 
-      public static com.google.protobuf.Internal.EnumVerifier 
+      public static com.google.protobuf.Internal.EnumVerifier
           internalGetVerifier() {
         return ErrorTypeVerifier.INSTANCE;
       }
 
-      private static final class ErrorTypeVerifier implements 
-           com.google.protobuf.Internal.EnumVerifier { 
+      private static final class ErrorTypeVerifier implements
+           com.google.protobuf.Internal.EnumVerifier {
               static final com.google.protobuf.Internal.EnumVerifier           INSTANCE = new ErrorTypeVerifier();
               @java.lang.Override
               public boolean isInRange(int number) {
                 return ErrorType.forNumber(number) != null;
               }
-            };
+            }
 
       private final int value;
 
-      private ErrorType(int value) {
+      ErrorType(int value) {
         this.value = value;
       }
 
@@ -2718,10 +2718,10 @@ public final class CastChannel {
     }
 
     public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
+      return DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.AuthError prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      return DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -2779,7 +2779,7 @@ public final class CastChannel {
     private byte memoizedIsInitialized = 2;
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
+    protected java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {
@@ -3169,10 +3169,10 @@ public final class CastChannel {
     }
 
     public static Builder newBuilder() {
-      return (Builder) DEFAULT_INSTANCE.createBuilder();
+      return DEFAULT_INSTANCE.createBuilder();
     }
     public static Builder newBuilder(su.litvak.chromecast.api.v2.CastChannel.DeviceAuthMessage prototype) {
-      return (Builder) DEFAULT_INSTANCE.createBuilder(prototype);
+      return DEFAULT_INSTANCE.createBuilder(prototype);
     }
 
     /**
@@ -3383,7 +3383,7 @@ public final class CastChannel {
     private byte memoizedIsInitialized = 2;
     @java.lang.Override
     @java.lang.SuppressWarnings({"unchecked", "fallthrough"})
-    protected final java.lang.Object dynamicMethod(
+    protected java.lang.Object dynamicMethod(
         com.google.protobuf.GeneratedMessageLite.MethodToInvoke method,
         java.lang.Object arg0, java.lang.Object arg1) {
       switch (method) {

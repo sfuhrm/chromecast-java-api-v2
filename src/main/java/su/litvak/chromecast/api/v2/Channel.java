@@ -93,7 +93,7 @@ class Channel implements Closeable {
     /**
      * Counter for producing request numbers
      */
-    private AtomicLong requestCounter = new AtomicLong(1);
+    private final AtomicLong requestCounter = new AtomicLong(1);
     /**
      * Processors of requests by their identifiers
      */
@@ -105,7 +105,7 @@ class Channel implements Closeable {
     /**
      * Destination ids of sessions opened within this channel
      */
-    private Set<String> sessions = new HashSet<String>();
+    private final Set<String> sessions = new HashSet<String>();
     /**
      * Indicates that this channel was closed (explicitly, by remote host or for some connectivity issue)
      */

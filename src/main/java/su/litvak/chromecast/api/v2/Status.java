@@ -36,7 +36,7 @@ public class Status {
            @JsonProperty("isActiveInput") boolean activeInput,
            @JsonProperty("isStandBy") boolean standBy) {
         this.volume = volume;
-        this.applications = applications == null ? Collections.<Application>emptyList() : applications;
+        this.applications = applications == null ? Collections.emptyList() : applications;
         this.activeInput = activeInput;
         this.standBy = standBy;
     }
