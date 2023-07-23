@@ -16,9 +16,9 @@ Library is available in maven central. Put lines below into you project's `pom.x
 <dependencies>
 ...
   <dependency>
-    <groupId>su.litvak.chromecast</groupId>
-    <artifactId>api-v2</artifactId>
-    <version>0.11.3</version>
+    <groupId>de.sfuhrm</groupId>
+    <artifactId>chromecast-java-api-v2</artifactId>
+    <version>0.12.0</version>
   </dependency>
 ...
 </dependencies>
@@ -29,7 +29,7 @@ Or to `build.gradle` (`mavenCentral()` repository should be included in appropri
 ```groovy
 dependencies {
 // ...
-    compile 'su.litvak.chromecast:api-v2:0.11.3'
+    compile 'de.sfuhrm:chromecast-java-api-v2:0.12.0'
 // ...
 }
 ```
@@ -41,7 +41,7 @@ To build library from sources:
 
 1) Clone github repo
 
-    $ git clone https://github.com/vitalidze/chromecast-java-api-v2.git
+    $ git clone https://github.com/sfuhrm/chromecast-java-api-v2.git
 
 2) Change to the cloned repo folder and run `mvn install`
 
@@ -54,9 +54,9 @@ To build library from sources:
 <dependencies>
 ...
   <dependency>
-    <groupId>su.litvak.chromecast</groupId>
-    <artifactId>api-v2</artifactId>
-    <version>0.11.4-SNAPSHOT</version>
+    <groupId>de.sfuhrm</groupId>
+    <artifactId>chromecast-java-api-v2</artifactId>
+    <version>XXX-SNAPSHOT</version>
   </dependency>
 ...
 </dependencies>
@@ -202,6 +202,7 @@ This is it for now. It covers all my needs, but if someone is interested in more
 Useful links
 ------------
 
+* [Original implementation]([https://github.com/wearefractal/nodecast](https://github.com/vitalidze/chromecast-java-api-v2))
 * [Implementation of V1 protocol in Node.js](https://github.com/wearefractal/nodecast)
 * [Console application implementing V1 protocol in java](https://github.com/entertailion/Caster)
 * [GUI application in java using V1 protocol to send media from local machine to ChromeCast](https://github.com/entertailion/Fling)
@@ -225,3 +226,4 @@ License
 (Apache v2.0 license)
 
 Copyright (c) 2014 Vitaly Litvak vitavaque@gmail.com
+Copyright (c) 2323 Stephan Fuhrmann
