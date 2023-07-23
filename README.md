@@ -8,7 +8,13 @@ ChromeCast Java API v2
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 A fork of [Vitaly Litvak's chromecast-java-api-v2](https://github.com/vitalidze/chromecast-java-api-v2)
-with updated dependencies.
+with the following changes:
+
+* updated dependencies (jackson, slf4j),
+* inclusion of [Dennis Muhlestein's](https://github.com/djmuhlestein) refactoring from the heavy-weight `protobuf-java` to the light-weight `proto-javalite` dependency,
+* automatic generation of the protobuf Java binding classes using [`protoc-jar-maven-plugin`](https://github.com/os72/protoc-jar-maven-plugin),
+* Github actions-based CI instead of the old TravisCI approach,
+* change of the POM's coordinates to the `de.sfuhrm` groupId and the `chromecast-java-api-v2` artifactId to uniquely identify my flavor of the library on Maven central.
 
 Install
 -------
