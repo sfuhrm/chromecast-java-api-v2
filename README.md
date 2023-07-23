@@ -4,7 +4,7 @@ ChromeCast Java API v2
 [![Dependency Check](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/dependency-check.yml/badge.svg)](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/dependency-check.yml)
 [![javadoc](https://javadoc.io/badge2/de.sfuhrm/chromecast-java-api-v2/javadoc.svg)](https://javadoc.io/doc/de.sfuhrm/chromecast-java-api-v2)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sfuhrm/chromecast-java-api-v2/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sfuhrm/chromecast-java-api-v2)
-[![ReleaseDate](https://img.shields.io/github/release-date/chromecast-java-api-v2/sudoku)](https://github.com/sfuhrm/chromecast-java-api-v2/releases)
+[![ReleaseDate](https://img.shields.io/github/release-date/chromecast-java-api-v2)](https://github.com/sfuhrm/chromecast-java-api-v2/releases)
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
 A fork of [Vitaly Litvak's chromecast-java-api-v2](https://github.com/vitalidze/chromecast-java-api-v2)
