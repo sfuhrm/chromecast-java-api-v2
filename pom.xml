@@ -3,7 +3,7 @@
 
     <groupId>de.sfuhrm</groupId>
     <artifactId>chromecast-java-api-v2</artifactId>
-    <version>0.12.5-SNAPSHOT</version>
+    <version>0.12.3-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>ChromeCast Java API v2</name>
