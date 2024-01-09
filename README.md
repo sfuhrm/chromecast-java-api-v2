@@ -27,7 +27,7 @@ Library is available in maven central. Put lines below into you project's `pom.x
   <dependency>
     <groupId>de.sfuhrm</groupId>
     <artifactId>chromecast-java-api-v2</artifactId>
-    <version>0.12.3</version>
+    <version>0.12.4</version>
   </dependency>
 ...
 </dependencies>
@@ -38,7 +38,7 @@ Or to `build.gradle` (`mavenCentral()` repository should be included in appropri
 ```groovy
 dependencies {
 // ...
-    compile 'de.sfuhrm:chromecast-java-api-v2:0.12.3'
+    compile 'de.sfuhrm:chromecast-java-api-v2:0.12.4'
 // ...
 }
 ```
