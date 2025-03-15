@@ -26,8 +26,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <jackson.version>2.17.2</jackson.version>
-        <slf4j.version>2.0.13</slf4j.version>
+        <jackson.version>2.18.3</jackson.version>
+        <slf4j.version>2.0.17</slf4j.version>
         <checkstyle.plugin.version>3.5.0</checkstyle.plugin.version>
         <checkstyle.version>9.3</checkstyle.version>
     </properties>
@@ -36,13 +36,13 @@
         <dependency>
             <groupId>org.jmdns</groupId>
             <artifactId>jmdns</artifactId>
-            <version>3.5.9</version>
+            <version>3.6.0</version>
         </dependency>
 
         <dependency>
             <groupId>com.google.protobuf</groupId>
             <artifactId>protobuf-javalite</artifactId>
-            <version>4.27.2</version>
+            <version>4.30.1</version>
         </dependency>
 
         <dependency>
