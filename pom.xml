@@ -3,7 +3,7 @@
 
     <groupId>de.sfuhrm</groupId>
     <artifactId>chromecast-java-api-v2</artifactId>
-    <version>0.12.11-SNAPSHOT</version>
+    <version>0.12.11</version>
     <packaging>jar</packaging>
 
     <name>ChromeCast Java API v2</name>
@@ -21,7 +21,7 @@
     <scm>
         <url>git@github.com:sfuhrm/chromecast-java-api-v2.git</url>
         <connection>scm:git:git@github.com:sfuhrm/chromecast-java-api-v2.git</connection>
-        <tag>HEAD</tag>
+        <tag>v0.12.11</tag>
     </scm>
 
     <properties>
