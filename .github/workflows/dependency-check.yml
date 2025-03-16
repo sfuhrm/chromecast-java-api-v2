@@ -22,7 +22,7 @@ jobs:
       run: mvn install
     - name: Run maven dependency check
       run: mvn org.owasp:dependency-check-maven:check
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       if: always()
       with:
         name: dependency-check
