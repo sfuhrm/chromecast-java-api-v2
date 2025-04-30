@@ -239,4 +239,4 @@ License
 (Apache v2.0 license)
 
 Copyright (c) 2014 Vitaly Litvak vitavaque@gmail.com
-Copyright (c) 2323 Stephan Fuhrmann
+Copyright (c) 2023-2025 Stephan Fuhrmann
