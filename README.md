@@ -1,6 +1,6 @@
 ChromeCast Java API v2
 ======================
-[![Java CI](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/maven.yml/badge.svg)](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/maven.yml)
+[![Java CI with Maven](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/maven-ref.yml/badge.svg)](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/maven-ref.yml)
 [![Dependency Check](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/dependency-check.yml/badge.svg)](https://github.com/sfuhrm/chromecast-java-api-v2/actions/workflows/dependency-check.yml)
 [![javadoc](https://javadoc.io/badge2/de.sfuhrm/chromecast-java-api-v2/javadoc.svg)](https://javadoc.io/doc/de.sfuhrm/chromecast-java-api-v2)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/de.sfuhrm/chromecast-java-api-v2/badge.svg)](https://maven-badges.herokuapp.com/maven-central/de.sfuhrm/chromecast-java-api-v2)
