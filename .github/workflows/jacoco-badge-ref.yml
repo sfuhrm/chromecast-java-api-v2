@@ -14,7 +14,7 @@ jobs:
     with:
       java_version: 21
       artifact_name: jacoco-report
-      artifact_path: ./radiorecorder/target/site/jacoco/
+      artifact_path: ./target/site/jacoco/
       jacoco_csv_path: >
-        ./radiorecorder/target/site/jacoco/jacoco.csv
+        ./target/site/jacoco/jacoco.csv
     
