@@ -15,22 +15,23 @@
  */
 package su.litvak.chromecast.api.v2;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.net.ConnectException;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ConnectionLostTest {
     MockedChromeCast chromeCastStub;
     ChromeCast cast = new ChromeCast("localhost");
 
-    @Before
+    @BeforeEach
     public void initMockedCast() throws Exception {
         chromeCastStub = new MockedChromeCast();
         cast.connect();
@@ -40,12 +41,14 @@ public class ConnectionLostTest {
         while (cast.isConnected() && retry++ < 25) {
             Thread.sleep(50);
         }
-        assertTrue("ChromeCast wasn't properly disconnected", retry < 25);
+        assertTrue(retry < 25, "ChromeCast wasn't properly disconnected");
     }
 
-    @Test(expected = ConnectException.class)
+    @Test
     public void testDisconnect() throws Exception {
-        assertNull(cast.getStatus());
+        assertThrows(ConnectException.class, () -> {
+            assertNull(cast.getStatus());
+        });
     }
 
     @Test
@@ -54,7 +57,7 @@ public class ConnectionLostTest {
         assertNotNull(cast.getStatus());
     }
 
-    @After
+    @AfterEach
     public void shutdown() throws IOException {
         if (cast.isConnected()) {
             cast.disconnect();

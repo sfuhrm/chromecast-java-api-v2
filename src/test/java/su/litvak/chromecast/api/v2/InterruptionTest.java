@@ -16,12 +16,9 @@
 package su.litvak.chromecast.api.v2;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import org.hamcrest.CoreMatchers;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Rule;
-import org.junit.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.util.concurrent.BrokenBarrierException;
@@ -30,13 +27,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeoutException;
 import java.util.concurrent.atomic.AtomicReference;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class InterruptionTest {
-    @Rule
-    public ExpectedException thrown = ExpectedException.none();
 
     MockedChromeCast chromeCastStub;
     ChromeCast cast = new ChromeCast("localhost");
@@ -55,7 +51,7 @@ public class InterruptionTest {
         }
     }
 
-    @Before
+    @BeforeEach
     public void initMockedCast() throws Exception {
         chromeCastStub = new MockedChromeCast();
         cast.connect();
@@ -124,13 +120,14 @@ public class InterruptionTest {
             }
         };
         cast.setRequestTimeout(100L);
-        thrown.expect(ChromeCastException.class);
-        thrown.expectCause(CoreMatchers.isA(TimeoutException.class));
-        thrown.expectMessage("Waiting for response timed out");
-        cast.send("", new Custom(), Custom.class);
+        ChromeCastException exception = assertThrows(ChromeCastException.class, () -> {
+            cast.send("", new Custom(), Custom.class);
+        });
+        assertTrue(exception.getCause() instanceof TimeoutException);
+        assertEquals("Waiting for response timed out", exception.getMessage());
     }
 
-    @After
+    @AfterEach
     public void destroy() throws IOException {
         cast.disconnect();
         chromeCastStub.close();

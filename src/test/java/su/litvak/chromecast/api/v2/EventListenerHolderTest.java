@@ -18,16 +18,16 @@ package su.litvak.chromecast.api.v2;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 import su.litvak.chromecast.api.v2.ChromeCastSpontaneousEvent.SpontaneousEventType;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class EventListenerHolderTest {
     private final ObjectMapper jsonMapper = JacksonHelper.createJSONMapper();
@@ -93,7 +93,7 @@ public class EventListenerHolderTest {
         }
     }
 
-    @Before
+    @BeforeEach
     public void init() throws Exception {
         this.emittedEvents = new ArrayList<ChromeCastSpontaneousEvent>();
         this.underTest = new EventListenerHolder();

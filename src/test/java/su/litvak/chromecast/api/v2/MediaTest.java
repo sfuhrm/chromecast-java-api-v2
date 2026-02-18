@@ -16,7 +16,7 @@
 package su.litvak.chromecast.api.v2;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import su.litvak.chromecast.api.v2.Media.StreamType;
 
 import java.util.HashMap;

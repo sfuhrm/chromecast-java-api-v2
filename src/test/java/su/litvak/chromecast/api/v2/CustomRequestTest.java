@@ -17,15 +17,15 @@ package su.litvak.chromecast.api.v2;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.JsonNode;
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.security.GeneralSecurityException;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CustomRequestTest {
     MockedChromeCast chromeCastStub;
@@ -84,14 +84,14 @@ public class CustomRequestTest {
 
     }
 
-    @Before
+    @BeforeEach
     public void init() throws IOException, GeneralSecurityException {
         chromeCastStub = new MockedChromeCast();
         cast.connect();
         cast.launchApp("KIOSK");
     }
 
-    @After
+    @AfterEach
     public void destroy() throws IOException {
         cast.disconnect();
         chromeCastStub.close();
