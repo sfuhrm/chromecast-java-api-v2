@@ -32,7 +32,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class InterruptionTest {
+public final class InterruptionTest {
 
     MockedChromeCast chromeCastStub;
     ChromeCast cast = new ChromeCast("localhost");

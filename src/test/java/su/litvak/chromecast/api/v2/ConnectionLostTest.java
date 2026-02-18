@@ -27,7 +27,7 @@ import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class ConnectionLostTest {
+public final class ConnectionLostTest {
     MockedChromeCast chromeCastStub;
     ChromeCast cast = new ChromeCast("localhost");
 

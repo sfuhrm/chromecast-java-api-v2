@@ -29,7 +29,7 @@ import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class EventListenerHolderTest {
+public final class EventListenerHolderTest {
     private final ObjectMapper jsonMapper = JacksonHelper.createJSONMapper();
     private List<ChromeCastSpontaneousEvent> emittedEvents;
     private EventListenerHolder underTest;
