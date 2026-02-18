@@ -15,6 +15,7 @@ with the following changes:
 * Github actions-based CI instead of the old TravisCI approach,
 * Shields.io badges,
 * change of the POM's coordinates to the `de.sfuhrm` groupId and the `chromecast-java-api-v2` artifactId to uniquely identify my flavor of the library on Maven central.
+* migrated unit tests from junit4 to junit5
 
 Install
 -------
@@ -27,7 +28,7 @@ Library is available in maven central. Put lines below into you project's `pom.x
   <dependency>
     <groupId>de.sfuhrm</groupId>
     <artifactId>chromecast-java-api-v2</artifactId>
-    <version>0.12.17</version>
+    <version>0.12.20</version>
   </dependency>
 ...
 </dependencies>
@@ -38,7 +39,7 @@ Or to `build.gradle` (`mavenCentral()` repository should be included in appropri
 ```groovy
 dependencies {
 // ...
-    compile 'de.sfuhrm:chromecast-java-api-v2:0.12.17'
+    compile 'de.sfuhrm:chromecast-java-api-v2:0.12.20'
 // ...
 }
 ```
