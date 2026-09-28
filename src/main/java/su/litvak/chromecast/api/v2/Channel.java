@@ -57,7 +57,8 @@ class Channel implements Closeable {
     /**
      * Default value of much time to wait until request is processed
      */
-    private static final long DEFAULT_REQUEST_TIMEOUT = 30 * 1000;
+    static final long DEFAULT_REQUEST_TIMEOUT = 30 * 1000;
+    static final int DEFAULT_CONNECT_TIMEOUT = 10 * 1000;
 
     private final static String DEFAULT_RECEIVER_ID = "receiver-0";
 
@@ -115,6 +116,11 @@ class Channel implements Closeable {
      * How much time to wait until request is processed
      */
     private volatile long requestTimeout = DEFAULT_REQUEST_TIMEOUT;
+
+    /**
+     * Timeout for establishing the TCP connection and for each read of the TLS handshake and authentication exchange
+     */
+    private volatile int connectTimeout = DEFAULT_CONNECT_TIMEOUT;
 
     private class PingThread extends TimerTask {
         @Override
@@ -291,8 +297,10 @@ class Channel implements Closeable {
                 SSLContext sc = SSLContext.getInstance("SSL");
                 sc.init(null, new TrustManager[] { new X509TrustAllManager() }, new SecureRandom());
                 socket = sc.getSocketFactory().createSocket();
-                socket.connect(address);
+                socket.connect(address, connectTimeout);
             }
+            // Bound the TLS handshake and the authentication exchange; the reader thread needs a blocking read afterwards
+            socket.setSoTimeout(connectTimeout);
             /**
              * Authenticate
              */
@@ -315,6 +323,7 @@ class Channel implements Closeable {
             if (authResponse.hasError()) {
                 throw new ChromeCastException("Authentication failed: " + authResponse.getError().getErrorType().toString());
             }
+            socket.setSoTimeout(0);
 
             /**
              * Send 'PING' message
@@ -533,20 +542,19 @@ class Channel implements Closeable {
     @Override
     public void close() throws IOException {
         synchronized (closedSync) {
-            if (closed) {
-                throw new ChromeCastException("Channel already closed.");
-            } else {
+            if (!closed) {
                 closed = true;
                 notifyListenerOfConnectionEvent(false);
-                if (pingTimer != null) {
-                    pingTimer.cancel();
-                }
-                if (reader != null) {
-                    reader.stop = true;
-                }
-                if (socket != null) {
-                    socket.close();
-                }
+            }
+            // Also releases the socket left behind by a failed open()
+            if (pingTimer != null) {
+                pingTimer.cancel();
+            }
+            if (reader != null) {
+                reader.stop = true;
+            }
+            if (socket != null) {
+                socket.close();
             }
         }
     }
@@ -557,5 +565,9 @@ class Channel implements Closeable {
 
     public void setRequestTimeout(long requestTimeout) {
         this.requestTimeout = requestTimeout;
+    }
+
+    public void setConnectTimeout(int connectTimeout) {
+        this.connectTimeout = connectTimeout;
     }
 }

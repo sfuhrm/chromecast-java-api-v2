@@ -41,6 +41,8 @@ public class ChromeCast {
     private String application;
     private Channel channel;
     private boolean autoReconnect = true;
+    private long requestTimeout = Channel.DEFAULT_REQUEST_TIMEOUT;
+    private int connectTimeout = Channel.DEFAULT_CONNECT_TIMEOUT;
 
     private String title;
     private String appTitle;
@@ -162,6 +164,8 @@ public class ChromeCast {
     public final synchronized void connect() throws IOException, GeneralSecurityException {
         if (channel == null || channel.isClosed()) {
             channel = new Channel(this.address, this.port, this.eventListenerHolder);
+            channel.setRequestTimeout(requestTimeout);
+            channel.setConnectTimeout(connectTimeout);
             channel.open();
         }
     }
@@ -208,7 +212,20 @@ public class ChromeCast {
      * @param requestTimeout value in milliseconds until request times out waiting for response
      */
     public void setRequestTimeout(long requestTimeout) {
-        channel.setRequestTimeout(requestTimeout);
+        this.requestTimeout = requestTimeout;
+        if (channel != null) {
+            channel.setRequestTimeout(requestTimeout);
+        }
+    }
+
+    /**
+     * Set up how much time to wait for the TCP connection, the TLS handshake and the authentication with the device
+     * (in milliseconds). Applies to the next connection. Without a timeout, a device that accepts the connection but
+     * never answers blocks the caller forever.
+     * @param connectTimeout value in milliseconds, 0 means no timeout
+     */
+    public void setConnectTimeout(int connectTimeout) {
+        this.connectTimeout = connectTimeout;
     }
 
     /**
