@@ -17,6 +17,7 @@ package su.litvak.chromecast.api.v2;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
@@ -44,8 +45,11 @@ public final class ConnectTimeoutTest {
             cast.setConnectTimeout(500);
 
             long start = System.nanoTime();
-            assertThrows(SocketTimeoutException.class, cast::connect);
+            IOException e = assertThrows(IOException.class, cast::connect);
             assertTrue(System.nanoTime() - start < TimeUnit.SECONDS.toNanos(5));
+            // JDK 8 wraps the handshake read timeout in an SSLException, later JDKs rethrow it as is
+            boolean timedOut = e instanceof SocketTimeoutException || e.getCause() instanceof SocketTimeoutException;
+            assertTrue(timedOut, e.toString());
 
             // Must not throw although the channel never opened
             cast.disconnect();
